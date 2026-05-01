@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0047)file:///C:/Users/acer/Downloads/Untitled-1.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MedAI — Multimodal Disease Risk Predictor</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<title>MedAI — Disease Risk Predictor</title>
+<link href="./MedAI — Disease Risk Predictor_files/css2" rel="stylesheet">
 <style>
 :root {
   --bg: #0a0e14;
@@ -19,225 +19,170 @@
   --warn: #f59e0b;
   --text: #e2e8f0;
   --muted: #64748b;
-  --card-border: rgba(0,212,255,0.12);
   --font-mono: 'Space Mono', monospace;
   --font-body: 'DM Sans', sans-serif;
 }
-
-*,*::before,*::after { box-sizing: border-box; margin:0; padding:0; }
-html { scroll-behavior: smooth; }
-
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  min-height: 100vh;
-  overflow-x: hidden;
+  background:var(--bg); color:var(--text);
+  font-family:var(--font-body); min-height:100vh; overflow-x:hidden;
 }
-
-/* Grid bg */
 body::before {
-  content:'';
-  position:fixed; inset:0;
+  content:''; position:fixed; inset:0;
   background-image:
-    linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events:none; z-index:0;
+    linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);
+  background-size:40px 40px; pointer-events:none; z-index:0;
 }
-
 .wrap { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:0 24px; }
 
-/* ── HEADER ── */
+/* HEADER */
 header {
-  border-bottom: 1px solid var(--border);
-  background: rgba(10,14,20,0.9);
-  backdrop-filter: blur(12px);
-  position: sticky; top:0; z-index:100;
+  border-bottom:1px solid var(--border);
+  background:rgba(10,14,20,0.92); backdrop-filter:blur(12px);
+  position:sticky; top:0; z-index:100;
 }
-.header-inner {
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 14px 0;
-}
+.header-inner { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
 .logo {
   display:flex; align-items:center; gap:10px;
-  font-family: var(--font-mono); font-size:15px; font-weight:700;
-  color: var(--accent); letter-spacing:-0.5px;
+  font-family:var(--font-mono); font-size:15px; font-weight:700; color:var(--accent);
 }
 .logo-icon {
-  width:32px; height:32px; background: linear-gradient(135deg, var(--accent), var(--accent2));
-  border-radius:8px; display:flex; align-items:center; justify-content:center;
-  font-size:16px;
+  width:32px; height:32px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px;
 }
 .status-pill {
   display:flex; align-items:center; gap:6px;
   font-family:var(--font-mono); font-size:11px; color:var(--accent3);
-  background: rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2);
+  background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2);
   padding:5px 12px; border-radius:20px;
 }
-.status-dot { width:6px; height:6px; background:var(--accent3); border-radius:50%; animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+.header-actions { display:flex; align-items:center; gap:8px; }
+.btn-admin {
+  padding:6px 12px; background:transparent; border:1px solid var(--border);
+  border-radius:20px; color:var(--muted); cursor:pointer; font-family:var(--font-mono);
+  font-size:11px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase;
+}
+.btn-admin:hover { border-color:var(--accent); color:var(--accent); }
+.status-dot { width:6px; height:6px; background:var(--accent3); border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
 
-/* ── HERO ── */
-.hero { padding: 56px 0 40px; }
+/* HERO */
+.hero { padding:48px 0 36px; }
 .hero-tag {
   display:inline-block; font-family:var(--font-mono); font-size:11px;
   color:var(--accent); background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.2);
   padding:4px 14px; border-radius:20px; letter-spacing:1px; margin-bottom:20px;
 }
-.hero h1 {
-  font-size:clamp(28px,4vw,48px); font-weight:300; line-height:1.15;
-  color: var(--text); max-width:700px; margin-bottom:16px;
-}
+.hero h1 { font-size:clamp(26px,4vw,44px); font-weight:300; line-height:1.15; max-width:680px; margin-bottom:14px; }
 .hero h1 strong { font-weight:600; color:var(--accent); }
-.hero p { color:var(--muted); font-size:16px; max-width:560px; line-height:1.7; }
+.hero p { color:var(--muted); font-size:15px; max-width:520px; line-height:1.7; }
 
-/* ── MAIN GRID ── */
-.main-grid {
-  display:grid;
-  grid-template-columns: 340px 1fr;
-  gap:20px; padding-bottom:60px;
-}
+/* GRID */
+.main-grid { display:grid; grid-template-columns:370px 1fr; gap:20px; padding-bottom:60px; }
+@media(max-width:900px){ .main-grid{grid-template-columns:1fr;} }
 
-/* ── PANELS ── */
-.panel {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius:16px; overflow:hidden;
-}
+/* PANELS */
+.panel { background:var(--panel); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
 .panel-head {
   padding:14px 20px; border-bottom:1px solid var(--border);
   display:flex; align-items:center; gap:10px;
 }
 .panel-head h3 {
-  font-family:var(--font-mono); font-size:12px; font-weight:700;
+  font-family:var(--font-mono); font-size:11px; font-weight:700;
   letter-spacing:0.5px; color:var(--accent); text-transform:uppercase;
 }
 .panel-icon { font-size:16px; }
 .panel-body { padding:20px; }
 
-/* ── PATIENT FORM ── */
+/* FORM */
 .field { margin-bottom:14px; }
 .field label {
   display:block; font-size:11px; font-weight:500; color:var(--muted);
-  text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;
-  font-family:var(--font-mono);
+  text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px; font-family:var(--font-mono);
 }
 .field input, .field select, .field textarea {
-  width:100%; background: var(--bg3); border:1px solid var(--border);
+  width:100%; background:var(--bg3); border:1px solid var(--border);
   border-radius:8px; padding:10px 12px; color:var(--text);
   font-family:var(--font-body); font-size:14px; outline:none;
-  transition: border-color .2s, box-shadow .2s;
+  transition:border-color .2s, box-shadow .2s; -webkit-appearance:none;
 }
 .field input:focus, .field select:focus, .field textarea:focus {
   border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,212,255,0.1);
 }
-.field select { cursor:pointer; }
 .field select option { background:var(--bg2); }
 .row2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 
-/* ── VITAL INPUT ── */
-.vital-grid {
-  display:grid; grid-template-columns:1fr 1fr; gap:10px;
-  margin-bottom:16px;
-}
+/* VITAL CARDS */
+.vital-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
 .vital-card {
   background:var(--bg3); border:1px solid var(--border);
-  border-radius:10px; padding:12px;
-  transition: border-color .2s;
+  border-radius:10px; padding:12px; transition:border-color .2s;
 }
 .vital-card:focus-within { border-color:var(--accent); }
+.vital-card.abnormal { border-color:rgba(239,68,68,0.6) !important; background:rgba(239,68,68,0.06); }
+.vital-card.warn-level { border-color:rgba(245,158,11,0.5) !important; background:rgba(245,158,11,0.05); }
 .vital-card label {
   font-family:var(--font-mono); font-size:10px; color:var(--muted);
   text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:4px;
 }
 .vital-card input {
   width:100%; background:transparent; border:none; outline:none;
-  color:var(--text); font-size:20px; font-weight:300;
-  font-family:var(--font-mono);
+  color:var(--text); font-size:20px; font-weight:300; font-family:var(--font-mono);
 }
 .vital-unit { font-size:10px; color:var(--muted); margin-top:2px; font-family:var(--font-mono); }
-.vital-card.abnormal { border-color:var(--danger) !important; background:rgba(239,68,68,0.05); }
-.vital-card.warn-level { border-color:var(--warn) !important; background:rgba(245,158,11,0.05); }
 
-/* ── IMAGE UPLOAD ── */
-.drop-zone {
-  border:2px dashed var(--border); border-radius:12px;
-  padding:32px; text-align:center; cursor:pointer;
-  transition: border-color .2s, background .2s; position:relative;
-  margin-bottom:14px;
+/* CSV Upload strip */
+.csv-strip {
+  border:1px dashed var(--border); border-radius:8px; padding:12px 16px;
+  display:flex; align-items:center; gap:10px; cursor:pointer; position:relative;
+  transition:border-color .2s, background .2s;
 }
-.drop-zone:hover, .drop-zone.drag-over {
-  border-color:var(--accent); background:rgba(0,212,255,0.04);
-}
-.drop-zone input[type=file] {
-  position:absolute; inset:0; opacity:0; cursor:pointer; width:100%; height:100%;
-}
-.drop-icon { font-size:32px; margin-bottom:8px; }
-.drop-text { font-size:13px; color:var(--muted); line-height:1.6; }
-.drop-text strong { color:var(--accent); }
-.preview-img {
-  width:100%; border-radius:10px; object-fit:cover;
-  border:1px solid var(--border); max-height:180px; display:none;
-}
+.csv-strip:hover { border-color:var(--accent); background:rgba(0,212,255,0.03); }
+.csv-strip input { position:absolute; inset:0; opacity:0; cursor:pointer; }
+.csv-strip-text { font-size:12px; color:var(--muted); }
+.csv-strip-text strong { color:var(--accent); }
 
-/* ── SIGNAL UPLOAD ── */
-.signal-upload {
-  border:1px solid var(--border); border-radius:10px;
-  padding:14px; margin-bottom:14px; cursor:pointer;
-  transition: border-color .2s; display:flex; align-items:center; gap:12px;
-  background:var(--bg3); position:relative;
-}
-.signal-upload:hover { border-color:var(--accent2); }
-.signal-upload input { position:absolute; inset:0; opacity:0; cursor:pointer; }
-.signal-icon { font-size:24px; flex-shrink:0; }
-.signal-text { font-size:12px; color:var(--muted); }
-.signal-text strong { color:var(--text); display:block; margin-bottom:2px; }
-.signal-filename { font-family:var(--font-mono); font-size:11px; color:var(--accent3); margin-top:2px; }
-
-/* ── TABS ── */
-.tabs {
-  display:flex; gap:4px; padding:4px;
-  background:var(--bg3); border-radius:10px; margin-bottom:16px;
-}
-.tab {
-  flex:1; padding:8px; border-radius:7px; border:none; background:none;
-  cursor:pointer; font-family:var(--font-mono); font-size:11px; font-weight:700;
-  color:var(--muted); text-transform:uppercase; letter-spacing:0.5px;
-  transition:.15s;
-}
-.tab.active { background:var(--panel); color:var(--accent); }
-.tab-pane { display:none; }
-.tab-pane.active { display:block; }
-
-/* ── ANALYZE BUTTON ── */
+/* BUTTONS */
 .btn-analyze {
-  width:100%; padding:14px; background: linear-gradient(135deg,var(--accent),var(--accent2));
-  border:none; border-radius:10px; color:#fff; font-family:var(--font-mono);
-  font-size:13px; font-weight:700; letter-spacing:1px; cursor:pointer;
-  text-transform:uppercase; transition:.15s; position:relative; overflow:hidden;
+  width:100%; padding:14px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border:none; border-radius:10px; color:#fff;
+  font-family:var(--font-mono); font-size:13px; font-weight:700;
+  letter-spacing:1px; cursor:pointer; text-transform:uppercase; transition:.15s;
 }
 .btn-analyze:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(0,212,255,0.2); }
 .btn-analyze:active { transform:scale(0.99); }
 .btn-analyze:disabled { opacity:.5; cursor:not-allowed; transform:none; }
-
 .btn-clear {
   width:100%; padding:10px; background:transparent;
   border:1px solid var(--border); border-radius:10px; color:var(--muted);
-  font-family:var(--font-mono); font-size:11px; font-weight:700; cursor:pointer;
-  text-transform:uppercase; letter-spacing:0.5px; transition:.15s; margin-top:8px;
+  font-family:var(--font-mono); font-size:11px; font-weight:700;
+  cursor:pointer; text-transform:uppercase; letter-spacing:0.5px;
+  transition:.15s; margin-top:8px;
 }
 .btn-clear:hover { border-color:var(--danger); color:var(--danger); }
 
-/* ── RIGHT COLUMN ── */
-.right-col { display:flex; flex-direction:column; gap:20px; }
+.btn-download {
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:8px; padding:12px 16px; border:none; border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff; font-family:var(--font-mono); font-size:12px; font-weight:700;
+  cursor:pointer; transition:.15s; margin-top:14px;
+}
+.btn-download:hover { transform:translateY(-1px); box-shadow:0 10px 25px rgba(0,212,255,0.18); }
+.btn-download:active { transform:scale(0.98); }
 
-/* ── PATIENT LIST ── */
+/* RIGHT COLUMN */
+.right-col { display:flex; flex-direction:column; gap:20px; }
+.front-records-panel { display:none; }
+
+/* PATIENT LIST */
 .patient-list { max-height:280px; overflow-y:auto; }
 .patient-list::-webkit-scrollbar { width:4px; }
-.patient-list::-webkit-scrollbar-track { background:var(--bg3); }
 .patient-list::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
-
 .patient-card {
   display:flex; align-items:center; gap:12px;
   padding:12px 16px; border-radius:10px; margin-bottom:8px;
@@ -249,41 +194,27 @@ header {
 .patient-avatar {
   width:38px; height:38px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
-  font-family:var(--font-mono); font-size:13px; font-weight:700;
-  flex-shrink:0;
+  font-family:var(--font-mono); font-size:13px; font-weight:700; flex-shrink:0;
 }
 .patient-info { flex:1; min-width:0; }
-.patient-name { font-size:14px; font-weight:500; color:var(--text); }
+.patient-name { font-size:14px; font-weight:500; }
 .patient-meta { font-size:11px; color:var(--muted); margin-top:1px; font-family:var(--font-mono); }
 .risk-badge {
   font-family:var(--font-mono); font-size:10px; font-weight:700;
   padding:3px 8px; border-radius:5px; text-transform:uppercase; flex-shrink:0;
 }
-.risk-low { background:rgba(16,185,129,0.15); color:var(--accent3); }
-.risk-mod { background:rgba(245,158,11,0.15); color:var(--warn); }
-.risk-high { background:rgba(239,68,68,0.15); color:var(--danger); }
-.risk-none { background:rgba(100,116,139,0.15); color:var(--muted); }
-
+.risk-low  { background:rgba(16,185,129,0.15); color:var(--accent3); }
+.risk-mod  { background:rgba(245,158,11,0.15);  color:var(--warn); }
+.risk-high { background:rgba(239,68,68,0.15);   color:var(--danger); }
 .del-btn {
   background:none; border:none; cursor:pointer; color:var(--muted);
-  font-size:16px; padding:4px; border-radius:4px; transition:.15s; flex-shrink:0;
+  font-size:17px; padding:4px; border-radius:4px; transition:.15s; flex-shrink:0;
 }
 .del-btn:hover { color:var(--danger); }
-
 .empty-state { text-align:center; padding:32px 20px; color:var(--muted); font-size:13px; }
 .empty-state .empty-icon { font-size:32px; margin-bottom:8px; opacity:.4; }
 
-/* ── RESULTS ── */
-.result-panel { flex:1; }
-.result-header {
-  display:flex; align-items:center; justify-content:space-between;
-  margin-bottom:16px;
-}
-.result-patient-name {
-  font-size:18px; font-weight:500; color:var(--text);
-}
-.result-meta { font-size:12px; color:var(--muted); font-family:var(--font-mono); margin-top:2px; }
-
+/* RESULTS */
 .risk-meter {
   background:var(--bg3); border:1px solid var(--border);
   border-radius:12px; padding:20px; margin-bottom:16px;
@@ -293,7 +224,7 @@ header {
 .risk-gauge svg { transform:rotate(-90deg); }
 .risk-gauge-label {
   position:absolute; inset:0; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; transform:rotate(0deg);
+  align-items:center; justify-content:center;
 }
 .risk-pct { font-family:var(--font-mono); font-size:18px; font-weight:700; }
 .risk-lbl { font-size:9px; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; }
@@ -301,61 +232,28 @@ header {
 .risk-status { font-size:20px; font-weight:300; margin-bottom:4px; }
 .risk-desc { font-size:13px; color:var(--muted); line-height:1.6; }
 
-/* ── FINDING CARDS ── */
 .findings-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+@media(max-width:600px){ .findings-grid{grid-template-columns:1fr;} }
 .finding-card {
-  background:var(--bg3); border:1px solid var(--border);
-  border-radius:10px; padding:14px;
-  animation: slideIn .3s ease both;
+  background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:14px;
+  animation:slideIn .3s ease both;
 }
-@keyframes slideIn { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
-.finding-card.abnormal { border-color:rgba(239,68,68,0.3); background:rgba(239,68,68,0.05); }
-.finding-card.warning { border-color:rgba(245,158,11,0.3); background:rgba(245,158,11,0.05); }
-.finding-card.normal { border-color:rgba(16,185,129,0.2); }
-
+@keyframes slideIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.finding-card.abnormal { border-color:rgba(239,68,68,0.35); background:rgba(239,68,68,0.05); }
+.finding-card.warning  { border-color:rgba(245,158,11,0.35); background:rgba(245,158,11,0.05); }
+.finding-card.normal   { border-color:rgba(16,185,129,0.25); }
 .finding-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
 .finding-name { font-family:var(--font-mono); font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; }
-.finding-status {
-  font-family:var(--font-mono); font-size:9px; font-weight:700;
-  padding:2px 6px; border-radius:4px; text-transform:uppercase;
-}
-.finding-status.bad { background:rgba(239,68,68,0.2); color:var(--danger); }
+.finding-status { font-family:var(--font-mono); font-size:9px; font-weight:700; padding:2px 6px; border-radius:4px; text-transform:uppercase; }
+.finding-status.bad  { background:rgba(239,68,68,0.2);  color:var(--danger); }
 .finding-status.warn { background:rgba(245,158,11,0.2); color:var(--warn); }
-.finding-status.ok { background:rgba(16,185,129,0.2); color:var(--accent3); }
+.finding-status.ok   { background:rgba(16,185,129,0.2); color:var(--accent3); }
 .finding-value { font-family:var(--font-mono); font-size:22px; font-weight:700; line-height:1; }
 .finding-range { font-size:11px; color:var(--muted); margin-top:4px; }
 
-/* ── IMAGE RESULT ── */
-.image-result {
-  background:var(--bg3); border:1px solid var(--border); border-radius:10px;
-  padding:14px; margin-bottom:16px; display:flex; gap:14px; align-items:center;
-}
-.image-thumb { width:72px; height:72px; border-radius:8px; object-fit:cover; flex-shrink:0; }
-.image-result-info { flex:1; }
-.image-result-title { font-size:13px; font-weight:500; margin-bottom:4px; }
-.image-result-detail { font-size:12px; color:var(--muted); line-height:1.5; font-family:var(--font-mono); }
-
-/* ── TERMINAL LOG ── */
-.terminal {
-  background: #080d14; border:1px solid var(--border);
-  border-radius:10px; padding:16px; font-family:var(--font-mono);
-  font-size:12px; line-height:1.8; max-height:180px; overflow-y:auto;
-  color:#64748b;
-}
-.terminal::-webkit-scrollbar { width:4px; }
-.terminal::-webkit-scrollbar-thumb { background:var(--border); }
-.terminal .t-green { color:#10b981; }
-.terminal .t-cyan { color:#00d4ff; }
-.terminal .t-red { color:#ef4444; }
-.terminal .t-yellow { color:#f59e0b; }
-.terminal .t-white { color:#e2e8f0; }
-.terminal .t-dim { color:#334155; }
-
-/* ── PROGRESS ── */
 .prog-bar-wrap { height:3px; background:var(--border); border-radius:2px; margin:12px 0; overflow:hidden; }
-.prog-bar { height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:2px; transition:width .3s; width:0%; }
+.prog-bar { height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:2px; transition:width .4s; width:0%; }
 
-/* ── RECOMMENDATIONS ── */
 .rec-list { margin-top:12px; }
 .rec-item {
   display:flex; align-items:flex-start; gap:10px;
@@ -363,63 +261,103 @@ header {
   font-size:13px; color:var(--muted); line-height:1.5;
 }
 .rec-item:last-child { border-bottom:none; }
-.rec-item .rec-icon { font-size:14px; flex-shrink:0; margin-top:1px; }
+.rec-icon { font-size:14px; flex-shrink:0; margin-top:1px; }
 
-/* ── PLACEHOLDER ── */
+.terminal {
+  background:#080d14; border:1px solid var(--border); border-radius:10px;
+  padding:16px; font-family:var(--font-mono); font-size:12px;
+  line-height:1.8; max-height:180px; overflow-y:auto; color:#64748b;
+}
+.terminal::-webkit-scrollbar { width:4px; }
+.terminal::-webkit-scrollbar-thumb { background:var(--border); }
+.t-green{color:#10b981;} .t-cyan{color:#00d4ff;} .t-red{color:#ef4444;}
+.t-yellow{color:#f59e0b;} .t-white{color:#e2e8f0;} .t-dim{color:#334155;}
+
 .result-placeholder {
   display:flex; flex-direction:column; align-items:center;
-  justify-content:center; padding:60px 20px; text-align:center;
-  color:var(--muted);
+  justify-content:center; padding:60px 20px; text-align:center; color:var(--muted);
 }
-.placeholder-art {
-  width:80px; height:80px; border-radius:50%;
-  border:2px dashed var(--border);
-  display:flex; align-items:center; justify-content:center;
-  font-size:28px; margin-bottom:16px; opacity:.4;
-}
-.placeholder-text { font-size:14px; line-height:1.7; max-width:280px; }
+.placeholder-art { font-size:48px; margin-bottom:16px; opacity:.3; }
+.placeholder-text { font-size:14px; line-height:1.6; }
+.result-patient-name { font-size:18px; font-weight:500; margin-bottom:4px; }
+.result-meta { font-size:12px; color:var(--muted); font-family:var(--font-mono); margin-bottom:16px; }
 
-/* ── MODAL ── */
+/* MODAL */
 .modal-overlay {
-  position:fixed; inset:0; background:rgba(0,0,0,.7);
-  backdrop-filter:blur(4px); z-index:200;
-  display:none; align-items:center; justify-content:center; padding:20px;
+  position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:200;
+  display:none; align-items:center; justify-content:center;
 }
 .modal-overlay.open { display:flex; }
 .modal {
-  background:var(--panel); border:1px solid var(--border);
-  border-radius:16px; padding:28px; max-width:420px; width:100%;
-  animation: fadeIn .2s ease;
+  background:var(--panel); border:1px solid var(--border); border-radius:16px;
+  padding:28px; max-width:400px; width:90%;
 }
-@keyframes fadeIn { from{opacity:0;transform:scale(.96);} to{opacity:1;transform:scale(1);} }
-.modal h3 { font-size:16px; font-weight:500; margin-bottom:6px; }
-.modal p { font-size:13px; color:var(--muted); margin-bottom:20px; line-height:1.6; }
+.modal h3 { font-size:16px; margin-bottom:10px; }
+.modal p { font-size:14px; color:var(--muted); margin-bottom:20px; line-height:1.6; }
 .modal-btns { display:flex; gap:10px; justify-content:flex-end; }
 .btn-modal-cancel {
-  padding:9px 20px; background:var(--bg3); border:1px solid var(--border);
-  border-radius:8px; color:var(--text); font-size:13px; cursor:pointer;
+  padding:9px 20px; background:transparent; border:1px solid var(--border);
+  border-radius:8px; color:var(--muted); cursor:pointer; font-family:var(--font-mono); font-size:12px;
 }
 .btn-modal-confirm {
   padding:9px 20px; background:var(--danger); border:none;
-  border-radius:8px; color:#fff; font-size:13px; cursor:pointer; font-weight:500;
+  border-radius:8px; color:#fff; cursor:pointer; font-family:var(--font-mono); font-size:12px; font-weight:700;
 }
 
-/* ── TOAST ── */
+/* SECTION LABEL */
+.sec-label {
+  font-family:var(--font-mono); font-size:10px; color:var(--muted);
+  letter-spacing:0.5px; text-transform:uppercase; margin-bottom:10px;
+  display:flex; align-items:center; gap:8px;
+}
+.sec-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+/* TOAST */
 .toast {
-  position:fixed; bottom:24px; right:24px; z-index:300;
-  background:var(--panel); border:1px solid var(--border);
-  border-radius:10px; padding:14px 18px;
-  font-size:13px; box-shadow:0 8px 32px rgba(0,0,0,.4);
-  display:flex; align-items:center; gap:10px;
-  animation: toastIn .3s ease; max-width:300px;
+  position:fixed; bottom:24px; right:24px;
+  background:var(--panel); border:1px solid var(--border); border-radius:10px;
+  padding:12px 18px; font-size:13px; z-index:300;
+  box-shadow:0 8px 24px rgba(0,0,0,0.4);
 }
-@keyframes toastIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
 
-/* ── RESPONSIVE ── */
-@media(max-width:900px) {
-  .main-grid { grid-template-columns:1fr; }
-  .findings-grid { grid-template-columns:1fr; }
+.admin-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:250;
+  display:none; align-items:center; justify-content:center; padding:20px;
 }
+.admin-overlay.open { display:flex; }
+.admin-card {
+  width:min(960px,100%); max-height:90vh; overflow:auto;
+  background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:20px;
+}
+.admin-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.admin-title { font-family:var(--font-mono); font-size:14px; color:var(--accent); }
+.admin-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:14px; }
+@media(max-width:900px){ .admin-grid{grid-template-columns:repeat(2,1fr);} }
+.admin-metric { background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:10px; }
+.admin-metric .k { font-size:10px; color:var(--muted); font-family:var(--font-mono); text-transform:uppercase; }
+.admin-metric .v { font-size:22px; font-family:var(--font-mono); margin-top:4px; }
+.admin-table-wrap { background:var(--bg3); border:1px solid var(--border); border-radius:10px; overflow:auto; }
+.admin-table { width:100%; border-collapse:collapse; min-width:720px; }
+.admin-table th, .admin-table td { padding:10px; border-bottom:1px solid var(--border); font-size:12px; text-align:left; }
+.admin-table th { color:var(--muted); font-family:var(--font-mono); font-size:10px; text-transform:uppercase; }
+.admin-report {
+  margin-top:14px; background:var(--bg3); border:1px solid var(--border);
+  border-radius:10px; padding:12px;
+}
+.admin-report-title { font-family:var(--font-mono); font-size:11px; color:var(--accent); text-transform:uppercase; margin-bottom:8px; }
+.admin-chip {
+  display:inline-block; font-family:var(--font-mono); font-size:10px; padding:3px 8px;
+  border-radius:5px; margin-left:8px;
+}
+.admin-report-list { margin-top:8px; }
+.admin-report-item { font-size:12px; color:var(--muted); padding:4px 0; border-bottom:1px solid var(--border); }
+.admin-report-item:last-child { border-bottom:none; }
+.btn-mini {
+  background:transparent; border:1px solid var(--border); color:var(--muted);
+  border-radius:6px; font-size:10px; padding:4px 8px; cursor:pointer; font-family:var(--font-mono);
+}
+.btn-mini:hover { border-color:var(--accent); color:var(--accent); }
+
 </style>
 </head>
 <body>
@@ -431,9 +369,12 @@ header {
         <div class="logo-icon">🧬</div>
         MedAI Predictor
       </div>
-      <div class="status-pill">
-        <div class="status-dot"></div>
-        SYSTEM ONLINE · v6.0
+      <div class="header-actions">
+        <button class="btn-admin" onclick="openAdminLogin()">Admin Dashboard</button>
+        <div class="status-pill">
+          <div class="status-dot"></div>
+          SYSTEM ONLINE · v6.0
+        </div>
       </div>
     </div>
   </div>
@@ -441,14 +382,14 @@ header {
 
 <div class="wrap">
   <div class="hero">
-    <div class="hero-tag">MULTIMODAL ANALYSIS ENGINE</div>
-    <h1>Disease Risk Prediction<br><strong>From Images, Signals & Vitals</strong></h1>
-    <p>Enter patient vitals, upload medical images or ECG/EEG signal files. The AI engine analyses all modalities and computes a unified risk score.</p>
+    <div class="hero-tag">CLINICAL RISK ANALYSIS ENGINE</div>
+    <h1>Disease Risk Prediction<br><strong>From Patient Vitals &amp; Lab Data</strong></h1>
+    <p>Enter patient details and live clinical parameters. The engine analyses 10 biomarkers and computes a unified risk score with targeted recommendations.</p>
   </div>
 
   <div class="main-grid">
 
-    <!-- LEFT: INPUT COLUMN -->
+    <!-- LEFT: INPUT -->
     <div style="display:flex;flex-direction:column;gap:20px;">
 
       <!-- PATIENT INFO -->
@@ -460,20 +401,18 @@ header {
         <div class="panel-body">
           <div class="field">
             <label>Full Name *</label>
-            <input id="pt-name" type="text" placeholder="e.g. Rajesh Kumar" />
+            <input id="pt-name" type="text" placeholder="e.g. Rajesh Kumar" autocomplete="off">
           </div>
           <div class="row2">
             <div class="field">
               <label>Age *</label>
-              <input id="pt-age" type="number" placeholder="35" min="1" max="120" />
+              <input id="pt-age" type="number" placeholder="35" min="1" max="120">
             </div>
             <div class="field">
               <label>Gender</label>
               <select id="pt-gender">
                 <option value="">Select...</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
+                <option>Male</option><option>Female</option><option>Other</option>
               </select>
             </div>
           </div>
@@ -492,11 +431,8 @@ header {
               <label>Department</label>
               <select id="pt-dept">
                 <option value="">Select...</option>
-                <option>Cardiology</option>
-                <option>Neurology</option>
-                <option>Endocrinology</option>
-                <option>Nephrology</option>
-                <option>General</option>
+                <option>Cardiology</option><option>Neurology</option>
+                <option>Endocrinology</option><option>Nephrology</option><option>General</option>
               </select>
             </div>
           </div>
@@ -507,164 +443,240 @@ header {
         </div>
       </div>
 
-      <!-- MODALITIES TABS -->
+      <!-- VITALS INPUT -->
       <div class="panel">
         <div class="panel-head">
           <span class="panel-icon">📊</span>
-          <h3>Analysis Input</h3>
+          <h3>Clinical Parameters</h3>
         </div>
         <div class="panel-body">
-          <div class="tabs">
-            <button class="tab active" onclick="switchTab('tabular')">Vitals</button>
-            <button class="tab" onclick="switchTab('image')">Image</button>
-            <button class="tab" onclick="switchTab('signal')">Signal</button>
-          </div>
 
-          <!-- TABULAR -->
-          <div class="tab-pane active" id="pane-tabular">
-            <div class="vital-grid" id="vital-grid">
-              <div class="vital-card" id="vc-glucose">
-                <label>Glucose</label>
-                <input type="number" id="v-glucose" placeholder="90" oninput="checkVital(this,'glucose')">
-                <div class="vital-unit">mg/dL · Normal &lt;126</div>
-              </div>
-              <div class="vital-card" id="vc-sys">
-                <label>Systolic BP</label>
-                <input type="number" id="v-sys" placeholder="120" oninput="checkVital(this,'sys')">
-                <div class="vital-unit">mmHg · Normal &lt;130</div>
-              </div>
-              <div class="vital-card" id="vc-dia">
-                <label>Diastolic BP</label>
-                <input type="number" id="v-dia" placeholder="80" oninput="checkVital(this,'dia')">
-                <div class="vital-unit">mmHg · Normal &lt;85</div>
-              </div>
-              <div class="vital-card" id="vc-bmi">
-                <label>BMI</label>
-                <input type="number" id="v-bmi" placeholder="22.5" step="0.1" oninput="checkVital(this,'bmi')">
-                <div class="vital-unit">kg/m² · Normal &lt;30</div>
-              </div>
-              <div class="vital-card" id="vc-hb">
-                <label>Hemoglobin</label>
-                <input type="number" id="v-hb" placeholder="14" step="0.1" oninput="checkVital(this,'hb')">
-                <div class="vital-unit">g/dL · Normal &gt;12</div>
-              </div>
-              <div class="vital-card" id="vc-chol">
-                <label>Cholesterol</label>
-                <input type="number" id="v-chol" placeholder="180" oninput="checkVital(this,'chol')">
-                <div class="vital-unit">mg/dL · Normal &lt;200</div>
-              </div>
-              <div class="vital-card" id="vc-trig">
-                <label>Triglycerides</label>
-                <input type="number" id="v-trig" placeholder="120" oninput="checkVital(this,'trig')">
-                <div class="vital-unit">mg/dL · Normal &lt;150</div>
-              </div>
-              <div class="vital-card" id="vc-creat">
-                <label>Creatinine</label>
-                <input type="number" id="v-creat" placeholder="0.9" step="0.01" oninput="checkVital(this,'creat')">
-                <div class="vital-unit">mg/dL · Normal &lt;1.3</div>
-              </div>
-              <div class="vital-card" id="vc-hr">
-                <label>Heart Rate</label>
-                <input type="number" id="v-hr" placeholder="75" oninput="checkVital(this,'hr')">
-                <div class="vital-unit">bpm · Normal &lt;100</div>
-              </div>
-              <div class="vital-card" id="vc-spo2">
-                <label>SpO2</label>
-                <input type="number" id="v-spo2" placeholder="98" oninput="checkVital(this,'spo2')">
-                <div class="vital-unit">% · Normal &gt;95</div>
-              </div>
+          <div class="sec-label">Cardiovascular &amp; Metabolic</div>
+          <div class="vital-grid">
+            <div class="vital-card" id="vc-glucose">
+              <label>Glucose</label>
+              <input type="number" id="v-glucose" placeholder="90" oninput="checkVital(this,&#39;glucose&#39;)">
+              <div class="vital-unit">mg/dL · Normal &lt;126</div>
             </div>
-            <div style="font-size:11px;color:var(--muted);margin-bottom:12px;font-family:var(--font-mono);">— or upload CSV file —</div>
-            <div class="drop-zone" id="csv-drop" onclick="document.getElementById('csv-file').click()" style="padding:16px;">
-              <input type="file" id="csv-file" accept=".csv" onchange="handleCSV(event)" style="display:none">
-              <div style="font-size:11px;color:var(--muted);">Drop <strong style="color:var(--accent);">.CSV</strong> dataset or click to browse</div>
+            <div class="vital-card" id="vc-sys">
+              <label>Systolic BP</label>
+              <input type="number" id="v-sys" placeholder="120" oninput="checkVital(this,&#39;sys&#39;)">
+              <div class="vital-unit">mmHg · Normal &lt;130</div>
+            </div>
+            <div class="vital-card" id="vc-dia">
+              <label>Diastolic BP</label>
+              <input type="number" id="v-dia" placeholder="80" oninput="checkVital(this,&#39;dia&#39;)">
+              <div class="vital-unit">mmHg · Normal &lt;85</div>
+            </div>
+            <div class="vital-card" id="vc-bmi">
+              <label>BMI</label>
+              <input type="number" id="v-bmi" placeholder="22.5" step="0.1" oninput="checkVital(this,&#39;bmi&#39;)">
+              <div class="vital-unit">kg/m² · Normal &lt;30</div>
             </div>
           </div>
 
-          <!-- IMAGE -->
-          <div class="tab-pane" id="pane-image">
-            <div class="drop-zone" id="img-drop">
-              <input type="file" id="img-file" accept="image/*" onchange="handleImage(event)">
-              <div class="drop-icon">🔬</div>
-              <div class="drop-text">
-                Drop medical scan here<br>
-                <strong>PNG, JPG, DICOM-preview</strong> accepted<br>
-                <span style="font-size:11px;opacity:.6;">X-Ray · MRI · CT Scan · Pathology slide</span>
-              </div>
+          <div class="sec-label">Blood Panel</div>
+          <div class="vital-grid">
+            <div class="vital-card" id="vc-hb">
+              <label>Hemoglobin</label>
+              <input type="number" id="v-hb" placeholder="14" step="0.1" oninput="checkVital(this,&#39;hb&#39;)">
+              <div class="vital-unit">g/dL · Normal &gt;12</div>
             </div>
-            <img id="img-preview" class="preview-img" src="" alt="Preview">
-            <div id="img-info" style="font-size:11px;color:var(--muted);font-family:var(--font-mono);margin-top:8px;display:none;"></div>
+            <div class="vital-card" id="vc-chol">
+              <label>Cholesterol</label>
+              <input type="number" id="v-chol" placeholder="180" oninput="checkVital(this,&#39;chol&#39;)">
+              <div class="vital-unit">mg/dL · Normal &lt;200</div>
+            </div>
+            <div class="vital-card" id="vc-trig">
+              <label>Triglycerides</label>
+              <input type="number" id="v-trig" placeholder="120" oninput="checkVital(this,&#39;trig&#39;)">
+              <div class="vital-unit">mg/dL · Normal &lt;150</div>
+            </div>
+            <div class="vital-card" id="vc-creat">
+              <label>Creatinine</label>
+              <input type="number" id="v-creat" placeholder="0.9" step="0.01" oninput="checkVital(this,&#39;creat&#39;)">
+              <div class="vital-unit">mg/dL · Normal &lt;1.3</div>
+            </div>
           </div>
 
-          <!-- SIGNAL -->
-          <div class="tab-pane" id="pane-signal">
-            <div class="signal-upload" id="ecg-upload" onclick="document.getElementById('ecg-file').click()">
-              <input type="file" id="ecg-file" accept=".csv,.txt,.dat,.edf" onchange="handleSignal(event,'ecg')">
-              <div class="signal-icon">💓</div>
-              <div class="signal-text">
-                <strong>ECG Signal File</strong>
-                .csv / .txt / .edf · Electrocardiogram data
-                <div class="signal-filename" id="ecg-fname">No file selected</div>
-              </div>
+          <div class="sec-label">Vitals</div>
+          <div class="vital-grid">
+            <div class="vital-card" id="vc-hr">
+              <label>Heart Rate</label>
+              <input type="number" id="v-hr" placeholder="75" oninput="checkVital(this,&#39;hr&#39;)">
+              <div class="vital-unit">bpm · Normal &lt;100</div>
             </div>
-            <div class="signal-upload" id="eeg-upload" onclick="document.getElementById('eeg-file').click()">
-              <input type="file" id="eeg-file" accept=".csv,.txt,.dat,.edf" onchange="handleSignal(event,'eeg')">
-              <div class="signal-icon">🧠</div>
-              <div class="signal-text">
-                <strong>EEG Signal File</strong>
-                .csv / .txt / .edf · Electroencephalogram data
-                <div class="signal-filename" id="eeg-fname">No file selected</div>
-              </div>
-            </div>
-            <div id="signal-viz" style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px;margin-top:8px;display:none;">
-              <div style="font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-bottom:8px;">SIGNAL WAVEFORM PREVIEW</div>
-              <canvas id="signal-canvas" width="280" height="60" style="width:100%;"></canvas>
+            <div class="vital-card" id="vc-spo2">
+              <label>SpO2</label>
+              <input type="number" id="v-spo2" placeholder="98" oninput="checkVital(this,&#39;spo2&#39;)">
+              <div class="vital-unit">% · Normal &gt;95</div>
             </div>
           </div>
+
+          <div class="sec-label" style="margin-top:4px;">Or Import CSV Dataset</div>
+          <div class="csv-strip">
+            <input type="file" id="csv-file" accept=".csv" onchange="handleCSV(event)">
+            <span style="font-size:20px;">📂</span>
+            <div class="csv-strip-text">Drop <strong>.CSV</strong> dataset or click to browse · 10 columns expected</div>
+          </div>
+          <button class="btn-clear" type="button" onclick="downloadCSVTemplate()" style="margin-top:10px;">
+            ⬇ Download CSV Template
+          </button>
+
         </div>
       </div>
 
       <!-- ACTIONS -->
       <div>
-        <button class="btn-analyze" id="analyze-btn" onclick="runAnalysis()">
-          ⚡ RUN DIAGNOSTIC ANALYSIS
-        </button>
+        <button class="btn-analyze" id="analyze-btn" onclick="runAnalysis()">⚡ RUN DIAGNOSTIC ANALYSIS</button>
         <button class="btn-clear" onclick="clearForm()">✕ Clear All Fields</button>
       </div>
+
     </div>
 
-    <!-- RIGHT: RESULTS COLUMN -->
+    <!-- RIGHT: RESULTS -->
     <div class="right-col">
 
       <!-- PATIENT RECORDS -->
-      <div class="panel">
+      <div class="panel front-records-panel" id="front-patient-records-panel" style="display:none;">
         <div class="panel-head">
           <span class="panel-icon">🗂</span>
           <h3>Patient Records</h3>
-          <span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;color:var(--muted);" id="pt-count">0 RECORDS</span>
+          <span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;color:var(--muted);" id="pt-count">2 RECORDS</span>
         </div>
         <div class="panel-body" style="padding:12px;">
-          <div class="patient-list" id="patient-list">
-            <div class="empty-state">
-              <div class="empty-icon">👤</div>
-              No patients analysed yet.<br>Fill the form and run analysis.
-            </div>
-          </div>
+          <div class="patient-list" id="patient-list"><div class="patient-card active-patient" onclick="loadPatient(1777655448266)">
+      <div class="patient-avatar" style="background:#7c3aed22;color:#7c3aed;border:1px solid #7c3aed44;">K</div>
+      <div class="patient-info">
+        <div class="patient-name">kumar</div>
+        <div class="patient-meta">AGE 44 · General · 1/5/2026</div>
+      </div>
+      <span class="risk-badge risk-high">HIGH 90%</span>
+      <button class="del-btn" onclick="deletePatient(event,1777655448266)" title="Delete">×</button>
+    </div><div class="patient-card " onclick="loadPatient(1777654981995)">
+      <div class="patient-avatar" style="background:#00d4ff22;color:#00d4ff;border:1px solid #00d4ff44;">A</div>
+      <div class="patient-info">
+        <div class="patient-name">AJAI</div>
+        <div class="patient-meta">AGE 25 · General · 1/5/2026</div>
+      </div>
+      <span class="risk-badge risk-high">HIGH 90%</span>
+      <button class="del-btn" onclick="deletePatient(event,1777654981995)" title="Delete">×</button>
+    </div></div>
         </div>
       </div>
 
-      <!-- RESULTS -->
-      <div class="panel result-panel">
+      <!-- DIAGNOSTIC REPORT -->
+      <div class="panel">
         <div class="panel-head">
           <span class="panel-icon">📋</span>
           <h3>Diagnostic Report</h3>
         </div>
         <div class="panel-body" id="result-body">
-          <div class="result-placeholder">
-            <div class="placeholder-art">🔬</div>
-            <div class="placeholder-text">Enter patient data and run analysis to view the diagnostic report here.</div>
-          </div>
+    <div class="result-patient-name">kumar <span style="font-size:14px;color:var(--muted);">⚧</span></div>
+    <div class="result-meta">AGE 44 · — · General · 1/5/2026</div>
+
+    <div class="risk-meter">
+      <div class="risk-gauge">
+        <svg width="80" height="80" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="32" fill="none" stroke="#1a2333" stroke-width="6"></circle>
+          <circle cx="40" cy="40" r="32" fill="none" stroke="var(--danger)" stroke-width="6" stroke-dasharray="201.06192982974676" stroke-dashoffset="20.106192982974676" stroke-linecap="round" style="transition:stroke-dashoffset 1s ease"></circle>
+        </svg>
+        <div class="risk-gauge-label">
+          <span class="risk-pct" style="color:var(--danger)">90%</span>
+          <span class="risk-lbl">Risk</span>
         </div>
+      </div>
+      <div class="risk-info">
+        <div class="risk-status" style="color:var(--danger)">⚠️ URGENT REVIEW</div>
+        <div class="risk-desc">Immediate medical attention recommended. Multiple critical parameters detected.</div>
+        
+      </div>
+    </div>
+
+    <div class="sec-label">Clinical Findings</div><div class="findings-grid"><div class="finding-card abnormal" style="animation-delay:0s">
+      <div class="finding-top">
+        <span class="finding-name">Glucose</span>
+        <span class="finding-status bad">Diabetes risk</span>
+      </div>
+      <div class="finding-value" style="color:var(--danger)">145</div>
+      <div class="finding-range">mg/dL · Normal: &lt; 126</div>
+    </div><div class="finding-card abnormal" style="animation-delay:0.05s">
+      <div class="finding-top">
+        <span class="finding-name">Systolic BP</span>
+        <span class="finding-status bad">Hypertensive</span>
+      </div>
+      <div class="finding-value" style="color:var(--danger)">135</div>
+      <div class="finding-range">mmHg · Normal: &lt; 130</div>
+    </div><div class="finding-card abnormal" style="animation-delay:0.1s">
+      <div class="finding-top">
+        <span class="finding-name">Diastolic BP</span>
+        <span class="finding-status bad">Elevated</span>
+      </div>
+      <div class="finding-value" style="color:var(--danger)">88</div>
+      <div class="finding-range">mmHg · Normal: &lt; 85</div>
+    </div><div class="finding-card warning" style="animation-delay:0.15000000000000002s">
+      <div class="finding-top">
+        <span class="finding-name">BMI</span>
+        <span class="finding-status warn">Overweight</span>
+      </div>
+      <div class="finding-value" style="color:var(--warn)">31.2</div>
+      <div class="finding-range">kg/m² · Normal: &lt; 30</div>
+    </div><div class="finding-card abnormal" style="animation-delay:0.2s">
+      <div class="finding-top">
+        <span class="finding-name">Hemoglobin</span>
+        <span class="finding-status bad">Anaemia</span>
+      </div>
+      <div class="finding-value" style="color:var(--danger)">11.5</div>
+      <div class="finding-range">g/dL · Normal: &gt; 12</div>
+    </div><div class="finding-card warning" style="animation-delay:0.25s">
+      <div class="finding-top">
+        <span class="finding-name">Cholesterol</span>
+        <span class="finding-status warn">Elevated</span>
+      </div>
+      <div class="finding-value" style="color:var(--warn)">215</div>
+      <div class="finding-range">mg/dL · Normal: &lt; 200</div>
+    </div><div class="finding-card warning" style="animation-delay:0.30000000000000004s">
+      <div class="finding-top">
+        <span class="finding-name">Triglycerides</span>
+        <span class="finding-status warn">Elevated</span>
+      </div>
+      <div class="finding-value" style="color:var(--warn)">160</div>
+      <div class="finding-range">mg/dL · Normal: &lt; 150</div>
+    </div><div class="finding-card abnormal" style="animation-delay:0.35000000000000003s">
+      <div class="finding-top">
+        <span class="finding-name">Creatinine</span>
+        <span class="finding-status bad">Renal stress</span>
+      </div>
+      <div class="finding-value" style="color:var(--danger)">1.4</div>
+      <div class="finding-range">mg/dL · Normal: &lt; 1.3</div>
+    </div><div class="finding-card normal" style="animation-delay:0.4s">
+      <div class="finding-top">
+        <span class="finding-name">Heart Rate</span>
+        <span class="finding-status ok">Normal</span>
+      </div>
+      <div class="finding-value" style="color:var(--accent3)">95</div>
+      <div class="finding-range">bpm · Normal: &lt; 100</div>
+    </div><div class="finding-card abnormal" style="animation-delay:0.45s">
+      <div class="finding-top">
+        <span class="finding-name">SpO2</span>
+        <span class="finding-status bad">Hypoxic</span>
+      </div>
+      <div class="finding-value" style="color:var(--danger)">94</div>
+      <div class="finding-range">% · Normal: &gt; 95</div>
+    </div></div>
+
+    <div class="prog-bar-wrap"><div class="prog-bar" style="width:90%;background:linear-gradient(90deg,var(--accent3),var(--danger))"></div></div>
+
+    <div class="sec-label">Recommendations</div>
+    <div class="rec-list"><div class="rec-item"><span class="rec-icon">🩸</span>Refer to endocrinologist — HbA1c test and glucose tolerance test recommended.</div><div class="rec-item"><span class="rec-icon">💊</span>Anti-hypertensive medication review. Monitor BP daily for 2 weeks.</div><div class="rec-item"><span class="rec-icon">🥗</span>Dietary consultation and structured exercise regimen advised.</div><div class="rec-item"><span class="rec-icon">💉</span>Iron supplement therapy. CBC and serum iron evaluation recommended.</div><div class="rec-item"><span class="rec-icon">🫀</span>Lipid panel workup. Consider statin therapy if LDL is elevated.</div><div class="rec-item"><span class="rec-icon">🫘</span>Nephrology referral. eGFR and urinalysis required.</div><div class="rec-item"><span class="rec-icon">🫁</span>Immediate spirometry. Oxygen supplementation may be required.</div><div class="rec-item"><span class="rec-icon">🚨</span>URGENT: Immediate physician review and hospitalisation evaluation recommended.</div></div>
+
+    <div class="sec-label" style="margin-top:16px;">Diagnostic Log</div>
+    <div class="terminal"><span class="t-dim">[10:40:48 pm]</span> <span class="t-cyan">INIT</span> MedAI Diagnostic Engine v6.0
+<span class="t-dim">[PATIENT]</span> <span class="t-white">kumar</span> · Age 44 · General
+<span class="t-green">[TABULAR]</span> 10 vitals parsed — 6 critical, 3 warnings
+<span class="t-yellow">[RISK]</span> Aggregate score: <span class="t-white">90%</span>
+<span class="t-red">[STATUS]</span> URGENT REVIEW</div>
+  </div>
       </div>
 
     </div>
@@ -675,11 +687,87 @@ header {
 <div class="modal-overlay" id="del-modal">
   <div class="modal">
     <h3>Delete Patient Record</h3>
-    <p id="del-modal-msg">Are you sure you want to permanently delete this patient record?</p>
+    <p id="del-modal-msg">Are you sure you want to permanently delete this record?</p>
     <div class="modal-btns">
       <button class="btn-modal-cancel" onclick="closeModal()">Cancel</button>
       <button class="btn-modal-confirm" onclick="confirmDelete()">Delete</button>
     </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="admin-login-modal">
+  <div class="modal">
+    <h3>Admin Access</h3>
+    <p>Enter admin password to open dashboard.</p>
+    <div class="field" style="margin-bottom:0;">
+      <label>Password</label>
+      <input id="admin-pass-input" type="password" placeholder="Enter password">
+    </div>
+    <div class="modal-btns" style="margin-top:16px;">
+      <button class="btn-modal-cancel" onclick="closeAdminLogin()">Cancel</button>
+      <button class="btn-modal-confirm" onclick="submitAdminPassword()">Open Dashboard</button>
+    </div>
+  </div>
+</div>
+
+<div class="admin-overlay" id="admin-dashboard">
+  <div class="admin-card">
+    <div class="admin-head">
+      <div class="admin-title">🗂 Admin Dashboard · Patient Records</div>
+      <button class="btn-modal-cancel" onclick="closeAdminDashboard()">Close</button>
+    </div>
+    <div class="admin-grid">
+      <div class="admin-metric"><div class="k">Total Records</div><div class="v" id="adm-total">2</div></div>
+      <div class="admin-metric"><div class="k">High Risk</div><div class="v" id="adm-high" style="color:var(--danger);">2</div></div>
+      <div class="admin-metric"><div class="k">Moderate Risk</div><div class="v" id="adm-mod" style="color:var(--warn);">0</div></div>
+      <div class="admin-metric"><div class="k">Low Risk</div><div class="v" id="adm-low" style="color:var(--accent3);">0</div></div>
+    </div>
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department</th>
+            <th>Risk</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Report</th>
+          </tr>
+        </thead>
+        <tbody id="admin-records-body"><tr>
+      <td>kumar</td>
+      <td>44</td>
+      <td>General</td>
+      <td>90%</td>
+      <td>HIGH</td>
+      <td>1/5/2026, 10:40:48 pm</td>
+      <td><button class="btn-mini" onclick="viewAdminReport(1777655448266)">View Report</button></td>
+    </tr><tr>
+      <td>AJAI</td>
+      <td>25</td>
+      <td>General</td>
+      <td>90%</td>
+      <td>HIGH</td>
+      <td>1/5/2026, 10:33:01 pm</td>
+      <td><button class="btn-mini" onclick="viewAdminReport(1777654981995)">View Report</button></td>
+    </tr></tbody>
+      </table>
+    </div>
+    <div class="admin-report" id="admin-report-box">
+    <div class="admin-report-title">
+      Diagnostic Report · kumar
+      <span class="admin-chip risk-high">HIGH 90%</span>
+    </div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">
+      AGE 44 · — · General · 1/5/2026, 10:40:48 pm
+    </div>
+    <div class="sec-label">Clinical Findings</div>
+    <div class="admin-report-list"><div class="admin-report-item">Glucose: <strong>145</strong> mg/dL · Diabetes risk</div><div class="admin-report-item">Systolic BP: <strong>135</strong> mmHg · Hypertensive</div><div class="admin-report-item">Diastolic BP: <strong>88</strong> mmHg · Elevated</div><div class="admin-report-item">BMI: <strong>31.2</strong> kg/m² · Overweight</div><div class="admin-report-item">Hemoglobin: <strong>11.5</strong> g/dL · Anaemia</div><div class="admin-report-item">Cholesterol: <strong>215</strong> mg/dL · Elevated</div><div class="admin-report-item">Triglycerides: <strong>160</strong> mg/dL · Elevated</div><div class="admin-report-item">Creatinine: <strong>1.4</strong> mg/dL · Renal stress</div><div class="admin-report-item">Heart Rate: <strong>95</strong> bpm · Normal</div><div class="admin-report-item">SpO2: <strong>94</strong> % · Hypoxic</div></div>
+    <div class="sec-label" style="margin-top:10px;">Recommendations</div>
+    <div class="admin-report-list"><div class="admin-report-item">🩸 Refer to endocrinologist — HbA1c test and glucose tolerance test recommended.</div><div class="admin-report-item">💊 Anti-hypertensive medication review. Monitor BP daily for 2 weeks.</div><div class="admin-report-item">🥗 Dietary consultation and structured exercise regimen advised.</div><div class="admin-report-item">💉 Iron supplement therapy. CBC and serum iron evaluation recommended.</div><div class="admin-report-item">🫀 Lipid panel workup. Consider statin therapy if LDL is elevated.</div><div class="admin-report-item">🫘 Nephrology referral. eGFR and urinalysis required.</div><div class="admin-report-item">🫁 Immediate spirometry. Oxygen supplementation may be required.</div><div class="admin-report-item">🚨 URGENT: Immediate physician review and hospitalisation evaluation recommended.</div></div>
+    <button class="btn-download" onclick="downloadReportDoc(1777655448266)">📄 Download Word Report</button>
+  </div>
   </div>
 </div>
 
@@ -688,33 +776,22 @@ header {
 let patients = JSON.parse(localStorage.getItem('medai_patients') || '[]');
 let activePatientId = null;
 let pendingDeleteId = null;
-let imageFile = null;
-let imageDataUrl = null;
-let signalFiles = {};
-let activeTab = 'tabular';
+const ADMIN_PASSWORD = 'PROJECT07';
+let adminUnlocked = sessionStorage.getItem('medai_admin_unlocked') === 'yes';
+let adminSelectedPatientId = null;
 
 const THRESHOLDS = {
-  glucose: { max:126, label:'Glucose', unit:'mg/dL', dir:'max' },
-  sys:     { max:130, label:'Systolic BP', unit:'mmHg', dir:'max' },
-  dia:     { max:85,  label:'Diastolic BP', unit:'mmHg', dir:'max' },
-  bmi:     { max:30,  label:'BMI', unit:'kg/m²', dir:'max' },
-  hb:      { min:12,  label:'Hemoglobin', unit:'g/dL', dir:'min' },
-  chol:    { max:200, label:'Cholesterol', unit:'mg/dL', dir:'max' },
-  trig:    { max:150, label:'Triglycerides', unit:'mg/dL', dir:'max' },
-  creat:   { max:1.3, label:'Creatinine', unit:'mg/dL', dir:'max' },
-  hr:      { max:100, label:'Heart Rate', unit:'bpm', dir:'max' },
-  spo2:    { min:95,  label:'SpO2', unit:'%', dir:'min' }
+  glucose:{ max:126, label:'Glucose',      unit:'mg/dL', dir:'max' },
+  sys:    { max:130, label:'Systolic BP',  unit:'mmHg',  dir:'max' },
+  dia:    { max:85,  label:'Diastolic BP', unit:'mmHg',  dir:'max' },
+  bmi:    { max:30,  label:'BMI',          unit:'kg/m²', dir:'max' },
+  hb:     { min:12,  label:'Hemoglobin',   unit:'g/dL',  dir:'min' },
+  chol:   { max:200, label:'Cholesterol',  unit:'mg/dL', dir:'max' },
+  trig:   { max:150, label:'Triglycerides',unit:'mg/dL', dir:'max' },
+  creat:  { max:1.3, label:'Creatinine',   unit:'mg/dL', dir:'max' },
+  hr:     { max:100, label:'Heart Rate',   unit:'bpm',   dir:'max' },
+  spo2:   { min:95,  label:'SpO2',         unit:'%',     dir:'min' }
 };
-
-// ── TAB SWITCHING ──
-function switchTab(tab) {
-  activeTab = tab;
-  document.querySelectorAll('.tab').forEach((t,i) => {
-    t.classList.toggle('active', ['tabular','image','signal'][i] === tab);
-  });
-  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-  document.getElementById('pane-' + tab).classList.add('active');
-}
 
 // ── VITAL REAL-TIME FEEDBACK ──
 function checkVital(input, key) {
@@ -723,82 +800,116 @@ function checkVital(input, key) {
   const card = document.getElementById('vc-' + key);
   card.classList.remove('abnormal','warn-level');
   if (!isNaN(val)) {
-    if (t.dir === 'max' && val > t.max) card.classList.add('abnormal');
-    else if (t.dir === 'min' && val < t.min) card.classList.add('abnormal');
-    else if (t.dir === 'max' && val > t.max * 0.9) card.classList.add('warn-level');
+    if (t.dir === 'max') {
+      if (val > t.max) card.classList.add('abnormal');
+      else if (val > t.max * 0.9) card.classList.add('warn-level');
+    } else {
+      if (val < t.min) card.classList.add('abnormal');
+      else if (val < t.min * 1.1) card.classList.add('warn-level');
+    }
   }
 }
 
 // ── CSV HANDLER ──
+function downloadCSVTemplate() {
+  const header = ['glucose','sys','dia','bmi','hb','chol','trig','creat','hr','spo2'];
+  const sample = ['95','120','80','23.4','13.8','175','130','0.92','76','98'];
+  const csv = `${header.join(',')}\n${sample.join(',')}\n`;
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'medai_template.csv';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  showToast('✅ CSV template downloaded');
+}
+
 function handleCSV(e) {
   const file = e.target.files[0];
   if (!file) return;
   const reader = new FileReader();
   reader.onload = ev => {
-    const lines = ev.target.result.split('\n').filter(l => l.trim());
-    const dataLine = lines.find(l => !isNaN(l.split(',')[0].trim())) || lines[1];
-    if (!dataLine) return;
-    const cols = dataLine.split(',');
+    const text = ev.target.result || '';
+    const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    if (!lines.length) { showToast('⚠️ CSV is empty'); return; }
+
+    const detectDelimiter = line => {
+      const candidates = [',', ';', '\t'];
+      let best = ',';
+      let bestCount = -1;
+      candidates.forEach(d => {
+        const count = line.split(d).length;
+        if (count > bestCount) { best = d; bestCount = count; }
+      });
+      return best;
+    };
+
+    const delimiter = detectDelimiter(lines[0]);
+    const splitRow = row => row.split(delimiter).map(c => c.trim().replace(/^"|"$/g, ''));
+    const normalize = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const numericOrNull = value => {
+      if (value === undefined || value === null || value === '') return null;
+      const n = parseFloat(String(value).replace(/,/g, ''));
+      return Number.isFinite(n) ? n : null;
+    };
+
     const keys = ['glucose','sys','dia','bmi','hb','chol','trig','creat','hr','spo2'];
-    keys.forEach((k, i) => {
-      const el = document.getElementById('v-' + k);
-      if (el && cols[i]) { el.value = cols[i].trim(); checkVital(el, k); }
-    });
-    showToast('✅ CSV loaded — vitals populated');
+    const aliases = {
+      glucose:['glucose','bloodsugar','sugar'],
+      sys:['sys','systolic','systolicbp','sbp'],
+      dia:['dia','diastolic','diastolicbp','dbp'],
+      bmi:['bmi','bodymassindex'],
+      hb:['hb','hemoglobin','haemoglobin'],
+      chol:['chol','cholesterol','totalcholesterol'],
+      trig:['trig','triglyceride','triglycerides'],
+      creat:['creat','creatinine'],
+      hr:['hr','heartrate','pulse'],
+      spo2:['spo2','oxygen','oxygensaturation','saturation']
+    };
+
+    const headerCells = splitRow(lines[0]).map(normalize);
+    const headerLooksLikeHeader = headerCells.some(h => Object.values(aliases).flat().includes(h));
+    const dataStartIndex = headerLooksLikeHeader ? 1 : 0;
+    const dataRow = lines.slice(dataStartIndex).map(splitRow).find(row => row.some(c => numericOrNull(c) !== null));
+
+    if (!dataRow) { showToast('⚠️ Could not find numeric data row in CSV'); return; }
+
+    let filled = 0;
+    if (headerLooksLikeHeader) {
+      keys.forEach(key => {
+        const wanted = aliases[key];
+        const idx = headerCells.findIndex(h => wanted.includes(h));
+        const val = idx >= 0 ? numericOrNull(dataRow[idx]) : null;
+        if (val !== null) {
+          const el = document.getElementById('v-' + key);
+          el.value = val;
+          checkVital(el, key);
+          filled++;
+        }
+      });
+    } else {
+      keys.forEach((key, i) => {
+        const val = numericOrNull(dataRow[i]);
+        if (val !== null) {
+          const el = document.getElementById('v-' + key);
+          el.value = val;
+          checkVital(el, key);
+          filled++;
+        }
+      });
+    }
+
+    if (!filled) {
+      showToast('⚠️ CSV parsed but no matching vital columns found');
+      return;
+    }
+    showToast(`✅ CSV loaded — ${filled}/10 vitals populated`);
   };
   reader.readAsText(file);
-}
-
-// ── IMAGE HANDLER ──
-function handleImage(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  imageFile = file;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    imageDataUrl = ev.target.result;
-    const prev = document.getElementById('img-preview');
-    prev.src = imageDataUrl; prev.style.display = 'block';
-    document.getElementById('img-info').style.display = 'block';
-    document.getElementById('img-info').textContent = `FILE: ${file.name} · SIZE: ${(file.size/1024).toFixed(1)} KB`;
-    document.querySelector('.drop-zone .drop-icon').textContent = '✅';
-  };
-  reader.readAsDataURL(file);
-}
-
-// ── SIGNAL HANDLER ──
-function handleSignal(e, type) {
-  const file = e.target.files[0];
-  if (!file) return;
-  signalFiles[type] = file;
-  document.getElementById(type + '-fname').textContent = file.name;
-  document.getElementById(type + '-upload').style.borderColor = 'var(--accent2)';
-  drawSimulatedWaveform();
-}
-
-function drawSimulatedWaveform() {
-  const viz = document.getElementById('signal-viz');
-  viz.style.display = 'block';
-  const canvas = document.getElementById('signal-canvas');
-  const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = '#00d4ff'; ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  const pts = 140;
-  for (let i = 0; i < pts; i++) {
-    const x = (i / pts) * canvas.width;
-    let y = 30;
-    // Simulate ECG-like peaks
-    const pos = i % 28;
-    if (pos === 8) y = 8;
-    else if (pos === 9) y = 52;
-    else if (pos === 10) y = 4;
-    else if (pos === 11) y = 30;
-    else if (pos === 14 || pos === 15) y = 22;
-    else y = 30 + Math.sin(i * 0.5) * 3;
-    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-  }
-  ctx.stroke();
 }
 
 // ── ANALYSIS ENGINE ──
@@ -810,34 +921,31 @@ async function runAnalysis() {
   const btn = document.getElementById('analyze-btn');
   btn.disabled = true; btn.textContent = '⏳ ANALYSING...';
 
-  // Simulate processing delay
-  await new Promise(r => setTimeout(r, 1400));
+  await new Promise(r => setTimeout(r, 1200));
 
   const vitals = getVitals();
-  const imageResult = imageFile ? analyseImage() : null;
-  const signalResult = Object.keys(signalFiles).length ? analyseSignals() : null;
-
   const findings = computeFindings(vitals);
-  const riskScore = computeRisk(findings, imageResult, signalResult);
+  const riskScore = computeRisk(findings);
   const recs = generateRecs(findings, riskScore);
 
   const patient = {
     id: Date.now(),
-    name, age,
-    gender: document.getElementById('pt-gender').value,
-    blood: document.getElementById('pt-blood').value,
-    dept: document.getElementById('pt-dept').value,
-    notes: document.getElementById('pt-notes').value,
+    name, age: parseInt(age),
+    gender:    document.getElementById('pt-gender').value,
+    blood:     document.getElementById('pt-blood').value,
+    dept:      document.getElementById('pt-dept').value,
+    notes:     document.getElementById('pt-notes').value.trim(),
     timestamp: new Date().toISOString(),
-    vitals, findings, riskScore, imageResult, signalResult, recs,
-    imageDataUrl: imageDataUrl || null
+    vitals, findings, riskScore, recs
   };
 
   patients.unshift(patient);
   localStorage.setItem('medai_patients', JSON.stringify(patients));
   renderPatientList();
-  renderResult(patient);
+  renderAdminDashboard();
   activePatientId = patient.id;
+  renderResult(patient);
+  autoDownloadReportExcel(patient);
 
   btn.disabled = false; btn.textContent = '⚡ RUN DIAGNOSTIC ANALYSIS';
   showToast(`✅ Analysis complete — Risk: ${riskScore}%`);
@@ -854,16 +962,26 @@ function computeFindings(vitals) {
   const findings = [];
   const t = THRESHOLDS;
   const checks = [
-    { k:'glucose', status: vitals.glucose && vitals.glucose > t.glucose.max ? 'bad' : 'ok', msg: vitals.glucose > t.glucose.max ? 'Diabetes risk' : 'Normal' },
-    { k:'sys',     status: vitals.sys && vitals.sys > t.sys.max ? 'bad' : 'ok', msg: vitals.sys > t.sys.max ? 'Hypertensive' : 'Normal' },
-    { k:'dia',     status: vitals.dia && vitals.dia > t.dia.max ? 'bad' : 'ok', msg: vitals.dia > t.dia.max ? 'Elevated' : 'Normal' },
-    { k:'bmi',     status: vitals.bmi && vitals.bmi > t.bmi.max ? (vitals.bmi > 35 ? 'bad':'warn') : 'ok', msg: vitals.bmi > 35 ? 'Obese II' : vitals.bmi > 30 ? 'Overweight' : 'Normal' },
-    { k:'hb',      status: vitals.hb && vitals.hb < t.hb.min ? 'bad' : 'ok', msg: vitals.hb < t.hb.min ? 'Anaemia' : 'Normal' },
-    { k:'chol',    status: vitals.chol && vitals.chol > t.chol.max ? 'warn' : 'ok', msg: vitals.chol > t.chol.max ? 'Elevated' : 'Normal' },
-    { k:'trig',    status: vitals.trig && vitals.trig > t.trig.max ? 'warn' : 'ok', msg: vitals.trig > t.trig.max ? 'Elevated' : 'Normal' },
-    { k:'creat',   status: vitals.creat && vitals.creat > t.creat.max ? 'bad' : 'ok', msg: vitals.creat > t.creat.max ? 'Renal stress' : 'Normal' },
-    { k:'hr',      status: vitals.hr && vitals.hr > t.hr.max ? 'warn' : 'ok', msg: vitals.hr > t.hr.max ? 'Tachycardia' : 'Normal' },
-    { k:'spo2',    status: vitals.spo2 && vitals.spo2 < t.spo2.min ? 'bad' : 'ok', msg: vitals.spo2 < t.spo2.min ? 'Hypoxic' : 'Normal' }
+    { k:'glucose', status: vitals.glucose > t.glucose.max ? 'bad' : 'ok',
+      msg: vitals.glucose > t.glucose.max ? 'Diabetes risk' : 'Normal' },
+    { k:'sys', status: vitals.sys > t.sys.max ? 'bad' : 'ok',
+      msg: vitals.sys > t.sys.max ? 'Hypertensive' : 'Normal' },
+    { k:'dia', status: vitals.dia > t.dia.max ? 'bad' : 'ok',
+      msg: vitals.dia > t.dia.max ? 'Elevated' : 'Normal' },
+    { k:'bmi', status: vitals.bmi > 35 ? 'bad' : vitals.bmi > 30 ? 'warn' : 'ok',
+      msg: vitals.bmi > 35 ? 'Obese II' : vitals.bmi > 30 ? 'Overweight' : 'Normal' },
+    { k:'hb', status: vitals.hb < t.hb.min ? 'bad' : 'ok',
+      msg: vitals.hb < t.hb.min ? 'Anaemia' : 'Normal' },
+    { k:'chol', status: vitals.chol > t.chol.max ? 'warn' : 'ok',
+      msg: vitals.chol > t.chol.max ? 'Elevated' : 'Normal' },
+    { k:'trig', status: vitals.trig > t.trig.max ? 'warn' : 'ok',
+      msg: vitals.trig > t.trig.max ? 'Elevated' : 'Normal' },
+    { k:'creat', status: vitals.creat > t.creat.max ? 'bad' : 'ok',
+      msg: vitals.creat > t.creat.max ? 'Renal stress' : 'Normal' },
+    { k:'hr', status: vitals.hr > t.hr.max ? 'warn' : 'ok',
+      msg: vitals.hr > t.hr.max ? 'Tachycardia' : 'Normal' },
+    { k:'spo2', status: vitals.spo2 < t.spo2.min ? 'bad' : 'ok',
+      msg: vitals.spo2 < t.spo2.min ? 'Hypoxic' : 'Normal' }
   ];
   checks.forEach(c => {
     if (vitals[c.k] !== null) findings.push({ key:c.k, value:vitals[c.k], status:c.status, msg:c.msg });
@@ -871,83 +989,171 @@ function computeFindings(vitals) {
   return findings;
 }
 
-function analyseImage() {
-  // Simulated image pathology analysis
-  const scenarios = [
-    { density: Math.floor(Math.random()*3000), threshold:1000 }
-  ];
-  const s = scenarios[0];
-  return {
-    density: s.density,
-    pathological: s.density > s.threshold,
-    detail: s.density > s.threshold
-      ? `Anomaly density ${s.density} — pathological tissue patterns detected`
-      : `Density ${s.density} — no significant visual anomalies`,
-    severity: s.density > 2000 ? 'High' : s.density > 1000 ? 'Moderate' : 'Low'
-  };
-}
-
-function analyseSignals() {
-  const results = {};
-  if (signalFiles.ecg) {
-    results.ecg = {
-      file: signalFiles.ecg.name,
-      anomaly: Math.random() > 0.5,
-      detail: Math.random() > 0.5 ? 'Irregular rhythm pattern — possible arrhythmia' : 'Sinus rhythm — within normal parameters'
-    };
-  }
-  if (signalFiles.eeg) {
-    results.eeg = {
-      file: signalFiles.eeg.name,
-      anomaly: Math.random() > 0.6,
-      detail: Math.random() > 0.6 ? 'Delta wave suppression observed' : 'Normal brain wave patterns detected'
-    };
-  }
-  return results;
-}
-
-function computeRisk(findings, imageResult, signalResult) {
-  let score = 0;
-  const bad = findings.filter(f => f.status === 'bad').length;
+function computeRisk(findings) {
+  const bad  = findings.filter(f => f.status === 'bad').length;
   const warn = findings.filter(f => f.status === 'warn').length;
-  score += bad * 12 + warn * 6;
-  if (imageResult?.pathological) score += imageResult.severity === 'High' ? 20 : 10;
-  if (signalResult?.ecg?.anomaly) score += 15;
-  if (signalResult?.eeg?.anomaly) score += 10;
-  return Math.min(100, score);
+  return Math.min(100, bad * 12 + warn * 6);
 }
 
 function generateRecs(findings, risk) {
   const recs = [];
-  if (findings.some(f => f.key === 'glucose' && f.status === 'bad')) recs.push({ icon:'🩸', text:'Refer to endocrinologist — HbA1c test and glucose tolerance test recommended.' });
-  if (findings.some(f => (f.key === 'sys' || f.key === 'dia') && f.status === 'bad')) recs.push({ icon:'💊', text:'Anti-hypertensive medication review. Monitor BP daily for 2 weeks.' });
-  if (findings.some(f => f.key === 'bmi' && f.status !== 'ok')) recs.push({ icon:'🥗', text:'Dietary consultation and structured exercise regimen advised.' });
-  if (findings.some(f => f.key === 'hb' && f.status === 'bad')) recs.push({ icon:'💉', text:'Iron supplement therapy. CBC and serum iron evaluation recommended.' });
-  if (findings.some(f => (f.key === 'chol' || f.key === 'trig') && f.status !== 'ok')) recs.push({ icon:'🫀', text:'Lipid panel workup. Consider statin therapy if LDL is elevated.' });
-  if (findings.some(f => f.key === 'creat' && f.status === 'bad')) recs.push({ icon:'🫘', text:'Nephrology referral. eGFR and urinalysis required.' });
-  if (findings.some(f => f.key === 'spo2' && f.status === 'bad')) recs.push({ icon:'🫁', text:'Immediate spirometry. Oxygen supplementation may be required.' });
-  if (risk > 60) recs.push({ icon:'🚨', text:'URGENT: Recommend immediate physician review and hospitalisation evaluation.' });
-  if (recs.length === 0) recs.push({ icon:'✅', text:'All parameters within healthy range. Routine 6-month follow-up recommended.' });
+  if (findings.some(f => f.key==='glucose' && f.status==='bad'))
+    recs.push({icon:'🩸', text:'Refer to endocrinologist — HbA1c test and glucose tolerance test recommended.'});
+  if (findings.some(f => (f.key==='sys'||f.key==='dia') && f.status==='bad'))
+    recs.push({icon:'💊', text:'Anti-hypertensive medication review. Monitor BP daily for 2 weeks.'});
+  if (findings.some(f => f.key==='bmi' && f.status!=='ok'))
+    recs.push({icon:'🥗', text:'Dietary consultation and structured exercise regimen advised.'});
+  if (findings.some(f => f.key==='hb' && f.status==='bad'))
+    recs.push({icon:'💉', text:'Iron supplement therapy. CBC and serum iron evaluation recommended.'});
+  if (findings.some(f => (f.key==='chol'||f.key==='trig') && f.status!=='ok'))
+    recs.push({icon:'🫀', text:'Lipid panel workup. Consider statin therapy if LDL is elevated.'});
+  if (findings.some(f => f.key==='creat' && f.status==='bad'))
+    recs.push({icon:'🫘', text:'Nephrology referral. eGFR and urinalysis required.'});
+  if (findings.some(f => f.key==='spo2' && f.status==='bad'))
+    recs.push({icon:'🫁', text:'Immediate spirometry. Oxygen supplementation may be required.'});
+  if (risk > 60)
+    recs.push({icon:'🚨', text:'URGENT: Immediate physician review and hospitalisation evaluation recommended.'});
+  if (recs.length === 0)
+    recs.push({icon:'✅', text:'All parameters within healthy range. Routine 6-month follow-up recommended.'});
   return recs;
 }
 
-// ── RENDER RESULTS ──
+function autoDownloadReportExcel(patient) {
+  const rows = [];
+  const pushRow = arr => rows.push(arr.map(v => `"${String(v ?? '').replace(/"/g, '""')}"`).join(','));
+
+  pushRow(['MedAI Diagnostic Report']);
+  pushRow(['Generated At', new Date().toLocaleString()]);
+  pushRow([]);
+  pushRow(['Patient Name', patient.name]);
+  pushRow(['Age', patient.age]);
+  pushRow(['Gender', patient.gender || '']);
+  pushRow(['Blood Group', patient.blood || '']);
+  pushRow(['Department', patient.dept || 'General']);
+  pushRow(['Risk Score (%)', patient.riskScore]);
+  pushRow(['Notes', patient.notes || '']);
+  pushRow([]);
+
+  pushRow(['Clinical Findings']);
+  pushRow(['Parameter', 'Value', 'Status', 'Message']);
+  (patient.findings || []).forEach(f => {
+    const t = THRESHOLDS[f.key] || {};
+    pushRow([t.label || f.key, `${f.value} ${t.unit || ''}`.trim(), f.status, f.msg]);
+  });
+  pushRow([]);
+
+  pushRow(['Recommendations']);
+  pushRow(['#', 'Recommendation']);
+  (patient.recs || []).forEach((r, i) => {
+    pushRow([i + 1, `${r.icon || ''} ${r.text}`.trim()]);
+  });
+
+  const csv = rows.join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const safeName = (patient.name || 'patient').replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '');
+  const datePart = new Date().toISOString().slice(0, 10);
+  a.href = url;
+  a.download = `${safeName || 'patient'}_${datePart}_report.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function downloadReportDoc(patientOrId) {
+  const patient = typeof patientOrId === 'object'
+    ? patientOrId
+    : patients.find(p => p.id === patientOrId);
+  if (!patient) {
+    showToast('⚠️ Patient data not found for download');
+    return;
+  }
+
+  const safeName = (patient.name || 'patient').replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '');
+  const datePart = new Date().toISOString().slice(0, 10);
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MedAI Diagnostic Report</title>
+  <style>
+    body { font-family:Arial, sans-serif; color:#0f172a; background:#fff; margin:24px; }
+    h1,h2,h3 { color:#0f172a; }
+    table { width:100%; border-collapse:collapse; margin-top:12px; }
+    td, th { border:1px solid #d1d5db; padding:8px; }
+    th { background:#f3f4f6; text-align:left; }
+    .badge { display:inline-block; padding:4px 8px; border-radius:4px; background:#e0f2fe; color:#0369a1; font-size:12px; }
+    .danger { background:#fee2e2; color:#991b1b; }
+    .warn { background:#fef3c7; color:#92400e; }
+    .ok { background:#dcfce7; color:#166534; }
+  </style>
+</head>
+<body>
+  <h1>MedAI Diagnostic Report</h1>
+  <p><strong>Patient:</strong> ${patient.name || '—'}</p>
+  <p><strong>Age:</strong> ${patient.age || '—'} &nbsp; • &nbsp; <strong>Gender:</strong> ${patient.gender || '—'} &nbsp; • &nbsp; <strong>Department:</strong> ${patient.dept || 'General'}</p>
+  <p><strong>Generated:</strong> ${new Date(patient.timestamp).toLocaleString()}</p>
+  <h2>Risk Summary</h2>
+  <p><strong>Risk Score:</strong> ${patient.riskScore}%</p>
+  <p><strong>Status:</strong> ${patient.riskScore > 60 ? 'Urgent Review' : patient.riskScore > 30 ? 'Moderate Risk' : 'Stable'}</p>
+  ${patient.notes ? `<p><strong>Clinical Notes:</strong> ${patient.notes}</p>` : ''}
+  <h2>Clinical Findings</h2>
+  <table>
+    <thead>
+      <tr><th>Parameter</th><th>Value</th><th>Status</th><th>Interpretation</th></tr>
+    </thead>
+    <tbody>
+      ${(patient.findings || []).map(f => {
+        const t = THRESHOLDS[f.key] || {};
+        return `<tr><td>${t.label || f.key}</td><td>${f.value} ${t.unit || ''}</td><td>${f.status}</td><td>${f.msg}</td></tr>`;
+      }).join('')}
+    </tbody>
+  </table>
+  <h2>Recommendations</h2>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Recommendation</th></tr>
+    </thead>
+    <tbody>
+      ${(patient.recs || []).map((r, i) => `<tr><td>${i + 1}</td><td>${r.icon || ''} ${r.text}</td></tr>`).join('')}
+    </tbody>
+  </table>
+</body>
+</html>`;
+
+  const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${safeName || 'patient'}_${datePart}_report.doc`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+  showToast('✅ Word report downloaded');
+}
+
+// ── RENDER RESULT ──
 function renderResult(p) {
   const risk = p.riskScore;
   const riskColor = risk > 60 ? 'var(--danger)' : risk > 30 ? 'var(--warn)' : 'var(--accent3)';
   const riskLabel = risk > 60 ? '⚠️ URGENT REVIEW' : risk > 30 ? '⚡ MODERATE RISK' : '✅ STABLE';
-  const riskDesc = risk > 60 ? 'Immediate medical attention recommended. Multiple critical parameters detected.'
-    : risk > 30 ? 'Elevated risk detected. Schedule medical consultation within 7 days.'
+  const riskDesc  = risk > 60
+    ? 'Immediate medical attention recommended. Multiple critical parameters detected.'
+    : risk > 30
+    ? 'Elevated risk detected. Schedule medical consultation within 7 days.'
     : 'Patient is in stable condition. Continue routine health monitoring.';
 
   const circumference = 2 * Math.PI * 32;
   const dashoffset = circumference - (risk / 100) * circumference;
   const genderIcon = p.gender === 'Female' ? '♀' : p.gender === 'Male' ? '♂' : '⚧';
 
-  let findingCards = p.findings.map((f, i) => {
+  const findingCards = p.findings.map((f, i) => {
     const t = THRESHOLDS[f.key];
     const norm = t.dir === 'max' ? `&lt; ${t.max}` : `&gt; ${t.min}`;
-    const cardClass = f.status === 'bad' ? 'abnormal' : f.status === 'warn' ? 'warning' : 'normal';
+    const cardClass = f.status==='bad' ? 'abnormal' : f.status==='warn' ? 'warning' : 'normal';
     return `<div class="finding-card ${cardClass}" style="animation-delay:${i*0.05}s">
       <div class="finding-top">
         <span class="finding-name">${t.label}</span>
@@ -958,49 +1164,19 @@ function renderResult(p) {
     </div>`;
   }).join('');
 
-  let imageHtml = '';
-  if (p.imageResult && p.imageDataUrl) {
-    imageHtml = `<div class="image-result">
-      <img class="image-thumb" src="${p.imageDataUrl}">
-      <div class="image-result-info">
-        <div class="image-result-title">🔬 Image Analysis</div>
-        <div class="image-result-detail">${p.imageResult.detail}<br>Severity: ${p.imageResult.severity}</div>
-      </div>
-    </div>`;
-  }
-
-  let signalHtml = '';
-  if (p.signalResult) {
-    Object.entries(p.signalResult).forEach(([type, r]) => {
-      signalHtml += `<div class="image-result">
-        <div style="width:72px;height:72px;background:var(--bg3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;">${type==='ecg'?'💓':'🧠'}</div>
-        <div class="image-result-info">
-          <div class="image-result-title">${type.toUpperCase()} Signal Analysis</div>
-          <div class="image-result-detail">${r.detail}</div>
-        </div>
-      </div>`;
-    });
-  }
-
   const recsHtml = p.recs.map(r => `<div class="rec-item"><span class="rec-icon">${r.icon}</span>${r.text}</div>`).join('');
 
   const logLines = [
     `<span class="t-dim">[${new Date(p.timestamp).toLocaleTimeString()}]</span> <span class="t-cyan">INIT</span> MedAI Diagnostic Engine v6.0`,
-    `<span class="t-dim">[PATIENT]</span> <span class="t-white">${p.name}</span> · Age ${p.age} · ${p.dept || 'General'}`,
-    `<span class="t-green">[TABULAR]</span> ${p.findings.length} vitals parsed — ${p.findings.filter(f=>f.status==='bad').length} abnormal`,
-    p.imageResult ? `<span class="t-green">[IMAGE]</span> Scan processed · Density: ${p.imageResult.density}` : `<span class="t-dim">[IMAGE]</span> No image uploaded`,
-    p.signalResult?.ecg ? `<span class="t-green">[ECG]</span> ${p.signalResult.ecg.detail}` : `<span class="t-dim">[ECG]</span> No signal file`,
+    `<span class="t-dim">[PATIENT]</span> <span class="t-white">${p.name}</span> · Age ${p.age} · ${p.dept||'General'}`,
+    `<span class="t-green">[TABULAR]</span> ${p.findings.length} vitals parsed — ${p.findings.filter(f=>f.status==='bad').length} critical, ${p.findings.filter(f=>f.status==='warn').length} warnings`,
     `<span class="t-yellow">[RISK]</span> Aggregate score: <span class="t-white">${risk}%</span>`,
     `<span class="${risk>60?'t-red':risk>30?'t-yellow':'t-green'}">[STATUS]</span> ${riskLabel.replace(/[^a-zA-Z ]/g,'').trim()}`
   ].join('\n');
 
   document.getElementById('result-body').innerHTML = `
-    <div class="result-header">
-      <div>
-        <div class="result-patient-name">${p.name} <span style="font-size:14px;color:var(--muted);">${genderIcon}</span></div>
-        <div class="result-meta">AGE ${p.age} · ${p.blood||'—'} · ${p.dept||'General'} · ${new Date(p.timestamp).toLocaleDateString()}</div>
-      </div>
-    </div>
+    <div class="result-patient-name">${p.name} <span style="font-size:14px;color:var(--muted);">${genderIcon}</span></div>
+    <div class="result-meta">AGE ${p.age} · ${p.blood||'—'} · ${p.dept||'General'} · ${new Date(p.timestamp).toLocaleDateString()}</div>
 
     <div class="risk-meter">
       <div class="risk-gauge">
@@ -1022,43 +1198,50 @@ function renderResult(p) {
       </div>
     </div>
 
-    ${findingCards.length ? `<div style="font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-bottom:10px;letter-spacing:0.5px;">CLINICAL FINDINGS</div><div class="findings-grid">${findingCards}</div>` : ''}
-    ${imageHtml}${signalHtml}
+    ${findingCards ? `<div class="sec-label">Clinical Findings</div><div class="findings-grid">${findingCards}</div>` : ''}
 
     <div class="prog-bar-wrap"><div class="prog-bar" style="width:${risk}%;background:linear-gradient(90deg,var(--accent3),${riskColor})"></div></div>
 
-    <div style="font-family:var(--font-mono);font-size:10px;color:var(--muted);margin:14px 0 8px;letter-spacing:0.5px;">RECOMMENDATIONS</div>
+    <div class="sec-label">Recommendations</div>
     <div class="rec-list">${recsHtml}</div>
 
-    <div style="font-family:var(--font-mono);font-size:10px;color:var(--muted);margin:14px 0 8px;letter-spacing:0.5px;">DIAGNOSTIC LOG</div>
+    <div class="sec-label" style="margin-top:16px;">Diagnostic Log</div>
     <div class="terminal">${logLines}</div>
   `;
 }
 
 // ── PATIENT LIST ──
 function renderPatientList() {
+  syncPatientsFromStorage();
   const container = document.getElementById('patient-list');
+  const safePatients = (patients || []).filter(p => p && typeof p === 'object');
+  patients = safePatients;
+
   document.getElementById('pt-count').textContent = patients.length + ' RECORDS';
   if (!patients.length) {
-    container.innerHTML = '<div class="empty-state"><div class="empty-icon">👤</div>No patients analysed yet.</div>';
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">👤</div>No patients analysed yet.<br>Fill the form and run analysis.</div>';
     return;
   }
   const colors = ['#7c3aed','#00d4ff','#10b981','#f59e0b','#ef4444'];
   container.innerHTML = patients.map((p, i) => {
-    const risk = p.riskScore;
-    const riskClass = risk > 60 ? 'risk-high' : risk > 30 ? 'risk-mod' : 'risk-low';
-    const riskTxt = risk > 60 ? 'HIGH' : risk > 30 ? 'MOD' : 'LOW';
-    const initials = p.name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+    const risk = Number.isFinite(p.riskScore) ? p.riskScore : 0;
+    const rClass = risk > 60 ? 'risk-high' : risk > 30 ? 'risk-mod' : 'risk-low';
+    const rTxt   = risk > 60 ? 'HIGH' : risk > 30 ? 'MOD' : 'LOW';
+    const name = (typeof p.name === 'string' && p.name.trim()) ? p.name.trim() : 'Unknown';
+    const age = Number.isFinite(p.age) ? p.age : '—';
+    const dept = p.dept || 'General';
+    const when = p.timestamp ? new Date(p.timestamp).toLocaleDateString() : '—';
+    const initials = name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2) || 'NA';
     const col = colors[i % colors.length];
-    const isActive = p.id === activePatientId;
-    return `<div class="patient-card ${isActive?'active-patient':''}" onclick="loadPatient(${p.id})">
-      <div class="patient-avatar" style="background:${col}22;color:${col};border:1px solid ${col}44">${initials}</div>
+    const pid = Number.isFinite(p.id) ? p.id : (Date.now() + i);
+    return `<div class="patient-card ${pid===activePatientId?'active-patient':''}" onclick="loadPatient(${pid})">
+      <div class="patient-avatar" style="background:${col}22;color:${col};border:1px solid ${col}44;">${initials}</div>
       <div class="patient-info">
-        <div class="patient-name">${p.name}</div>
-        <div class="patient-meta">AGE ${p.age} · ${p.dept||'General'} · ${new Date(p.timestamp).toLocaleDateString()}</div>
+        <div class="patient-name">${name}</div>
+        <div class="patient-meta">AGE ${age} · ${dept} · ${when}</div>
       </div>
-      <span class="risk-badge ${riskClass}">${riskTxt} ${risk}%</span>
-      <button class="del-btn" onclick="deletePatient(event,${p.id})" title="Delete">×</button>
+      <span class="risk-badge ${rClass}">${rTxt} ${risk}%</span>
+      <button class="del-btn" onclick="deletePatient(event,${pid})" title="Delete">×</button>
     </div>`;
   }).join('');
 }
@@ -1078,7 +1261,6 @@ function deletePatient(e, id) {
   document.getElementById('del-modal-msg').textContent = `Delete record for "${p?.name}"? This cannot be undone.`;
   document.getElementById('del-modal').classList.add('open');
 }
-
 function closeModal() { document.getElementById('del-modal').classList.remove('open'); }
 function confirmDelete() {
   patients = patients.filter(p => p.id !== pendingDeleteId);
@@ -1089,7 +1271,135 @@ function confirmDelete() {
   }
   closeModal();
   renderPatientList();
+  renderAdminDashboard();
   showToast('🗑 Record deleted');
+}
+
+function openAdminLogin() {
+  if (adminUnlocked) {
+    openAdminDashboard();
+    return;
+  }
+  document.getElementById('admin-pass-input').value = '';
+  document.getElementById('admin-login-modal').classList.add('open');
+}
+
+function closeAdminLogin() {
+  document.getElementById('admin-login-modal').classList.remove('open');
+}
+
+function submitAdminPassword() {
+  const input = document.getElementById('admin-pass-input').value;
+  if (input !== ADMIN_PASSWORD) {
+    showToast('❌ Incorrect admin password');
+    return;
+  }
+  adminUnlocked = true;
+  sessionStorage.setItem('medai_admin_unlocked', 'yes');
+  closeAdminLogin();
+  openAdminDashboard();
+}
+
+function openAdminDashboard() {
+  syncPatientsFromStorage();
+  renderAdminDashboard();
+  document.getElementById('admin-dashboard').classList.add('open');
+}
+
+function closeAdminDashboard() {
+  document.getElementById('admin-dashboard').classList.remove('open');
+}
+
+function renderAdminDashboard() {
+  syncPatientsFromStorage();
+  const total = patients.length;
+  const high = patients.filter(p => p.riskScore > 60).length;
+  const mod = patients.filter(p => p.riskScore > 30 && p.riskScore <= 60).length;
+  const low = patients.filter(p => p.riskScore <= 30).length;
+  document.getElementById('adm-total').textContent = total;
+  document.getElementById('adm-high').textContent = high;
+  document.getElementById('adm-mod').textContent = mod;
+  document.getElementById('adm-low').textContent = low;
+
+  const body = document.getElementById('admin-records-body');
+  if (!total) {
+    body.innerHTML = '<tr><td colspan="7" style="color:var(--muted);">No patient records yet.</td></tr>';
+    renderAdminReport(null);
+    return;
+  }
+
+  if (!adminSelectedPatientId || !patients.some(p => p.id === adminSelectedPatientId)) {
+    adminSelectedPatientId = patients[0].id;
+  }
+
+  body.innerHTML = patients.map(p => {
+    const status = p.riskScore > 60 ? 'HIGH' : p.riskScore > 30 ? 'MODERATE' : 'LOW';
+    return `<tr>
+      <td>${p.name}</td>
+      <td>${p.age}</td>
+      <td>${p.dept || 'General'}</td>
+      <td>${p.riskScore}%</td>
+      <td>${status}</td>
+      <td>${new Date(p.timestamp).toLocaleString()}</td>
+      <td><button class="btn-mini" onclick="viewAdminReport(${p.id})">View Report</button></td>
+    </tr>`;
+  }).join('');
+
+  const selected = patients.find(p => p.id === adminSelectedPatientId) || null;
+  renderAdminReport(selected);
+}
+
+function syncPatientsFromStorage() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem('medai_patients') || '[]');
+    if (!Array.isArray(parsed)) return;
+    // Do not wipe in-memory records with an empty storage read.
+    if (parsed.length > 0 || patients.length === 0) {
+      patients = parsed;
+    }
+  } catch (e) {
+    // Keep current in-memory data if storage is unavailable/corrupt.
+  }
+}
+
+function viewAdminReport(id) {
+  adminSelectedPatientId = id;
+  const selected = patients.find(p => p.id === id) || null;
+  renderAdminReport(selected);
+}
+
+function renderAdminReport(p) {
+  const box = document.getElementById('admin-report-box');
+  if (!p) {
+    box.innerHTML = `
+      <div class="admin-report-title">Diagnostic Report</div>
+      <div style="color:var(--muted);font-size:12px;">Select a patient record to view full report details.</div>
+    `;
+    return;
+  }
+
+  const riskClass = p.riskScore > 60 ? 'risk-high' : p.riskScore > 30 ? 'risk-mod' : 'risk-low';
+  const riskText = p.riskScore > 60 ? 'HIGH' : p.riskScore > 30 ? 'MODERATE' : 'LOW';
+  const findings = (p.findings || []).map(f => {
+    const t = THRESHOLDS[f.key];
+    return `<div class="admin-report-item">${t?.label || f.key}: <strong>${f.value}</strong> ${t?.unit || ''} · ${f.msg}</div>`;
+  }).join('');
+  const recs = (p.recs || []).map(r => `<div class="admin-report-item">${r.icon || '•'} ${r.text}</div>`).join('');
+
+  box.innerHTML = `
+    <div class="admin-report-title">
+      Diagnostic Report · ${p.name}
+      <span class="admin-chip ${riskClass}">${riskText} ${p.riskScore}%</span>
+    </div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">
+      AGE ${p.age} · ${p.blood || '—'} · ${p.dept || 'General'} · ${new Date(p.timestamp).toLocaleString()}
+    </div>
+    <div class="sec-label">Clinical Findings</div>
+    <div class="admin-report-list">${findings || '<div class="admin-report-item">No findings saved.</div>'}</div>
+    <div class="sec-label" style="margin-top:10px;">Recommendations</div>
+    <div class="admin-report-list">${recs || '<div class="admin-report-item">No recommendations saved.</div>'}</div>
+    <button class="btn-download" onclick="downloadReportDoc(${p.id})">📄 Download Word Report</button>
+  `;
 }
 
 // ── CLEAR FORM ──
@@ -1101,49 +1411,22 @@ function clearForm() {
   });
   ['pt-name','pt-age','pt-notes'].forEach(id => document.getElementById(id).value = '');
   ['pt-gender','pt-blood','pt-dept'].forEach(id => document.getElementById(id).selectedIndex = 0);
-  imageFile = null; imageDataUrl = null; signalFiles = {};
-  document.getElementById('img-preview').style.display = 'none';
-  document.getElementById('img-info').style.display = 'none';
-  document.querySelector('.drop-zone .drop-icon').textContent = '🔬';
-  document.getElementById('ecg-fname').textContent = 'No file selected';
-  document.getElementById('eeg-fname').textContent = 'No file selected';
-  document.getElementById('signal-viz').style.display = 'none';
   showToast('🧹 Form cleared');
 }
 
 // ── TOAST ──
 function showToast(msg) {
   const t = document.createElement('div');
-  t.className = 'toast';
-  t.textContent = msg;
+  t.className = 'toast'; t.textContent = msg;
   document.body.appendChild(t);
-  setTimeout(() => { t.style.opacity='0'; t.style.transform='translateY(10px)'; t.style.transition='.3s'; setTimeout(()=>t.remove(),300); }, 2800);
+  setTimeout(() => { t.style.opacity='0'; t.style.transition='.3s'; setTimeout(()=>t.remove(),300); }, 2800);
 }
-
-// ── DRAG DROP ──
-document.querySelectorAll('.drop-zone').forEach(zone => {
-  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
-  zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
-  zone.addEventListener('drop', e => {
-    e.preventDefault(); zone.classList.remove('drag-over');
-    const file = e.dataTransfer.files[0];
-    if (!file) return;
-    if (file.type.startsWith('image/')) {
-      const dt = new DataTransfer(); dt.items.add(file);
-      document.getElementById('img-file').files = dt.files;
-      handleImage({ target: { files: dt.files } });
-      switchTab('image');
-    }
-  });
-});
 
 // ── INIT ──
 renderPatientList();
-if (patients.length > 0) {
-  activePatientId = patients[0].id;
-  renderPatientList();
-  renderResult(patients[0]);
-}
+renderAdminDashboard();
+if (patients.length > 0) { activePatientId = patients[0].id; renderPatientList(); renderResult(patients[0]); }
 </script>
-</body>
-</html>
+
+
+</body></html>
