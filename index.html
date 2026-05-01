@@ -284,7 +284,7 @@ header {
 
 /* MODAL */
 .modal-overlay {
-  position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:200;
+  position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:300;
   display:none; align-items:center; justify-content:center;
 }
 .modal-overlay.open { display:flex; }
@@ -622,6 +622,7 @@ header {
             <th>Status</th>
             <th>Date</th>
             <th>Report</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody id="admin-records-body"></tbody>
@@ -1059,7 +1060,6 @@ function renderPatientList() {
         <div class="patient-meta">AGE ${age} · ${dept} · ${when}</div>
       </div>
       <span class="risk-badge ${rClass}">${rTxt} ${risk}%</span>
-      <button class="del-btn" onclick="deletePatient(event,${pid})" title="Delete">×</button>
     </div>`;
   }).join('');
 }
@@ -1074,6 +1074,11 @@ function loadPatient(id) {
 
 function deletePatient(e, id) {
   e.stopPropagation();
+  const adminOpen = document.getElementById('admin-dashboard').classList.contains('open');
+  if (!adminOpen) {
+    showToast('⚠️ Delete is allowed only from the Admin Dashboard');
+    return;
+  }
   pendingDeleteId = id;
   const p = patients.find(x => x.id === id);
   document.getElementById('del-modal-msg').textContent = `Delete record for "${p?.name}"? This cannot be undone.`;
@@ -1141,7 +1146,7 @@ function renderAdminDashboard() {
 
   const body = document.getElementById('admin-records-body');
   if (!total) {
-    body.innerHTML = '<tr><td colspan="7" style="color:var(--muted);">No patient records yet.</td></tr>';
+    body.innerHTML = '<tr><td colspan="8" style="color:var(--muted);">No patient records yet.</td></tr>';
     renderAdminReport(null);
     return;
   }
@@ -1160,6 +1165,7 @@ function renderAdminDashboard() {
       <td>${status}</td>
       <td>${new Date(p.timestamp).toLocaleString()}</td>
       <td><button class="btn-mini" onclick="viewAdminReport(${p.id})">View Report</button></td>
+      <td><button class="btn-mini" onclick="deletePatient(event,${p.id})">Delete</button></td>
     </tr>`;
   }).join('');
 
