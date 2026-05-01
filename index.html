@@ -1024,6 +1024,8 @@ function renderResult(p) {
     <div class="sec-label">Recommendations</div>
     <div class="rec-list">${recsHtml}</div>
 
+    <button class="btn-download" onclick="downloadReportDoc(${p.id})">📄 Download Report</button>
+
     <div class="sec-label" style="margin-top:16px;">Diagnostic Log</div>
     <div class="terminal">${logLines}</div>
   `;
@@ -1165,7 +1167,10 @@ function renderAdminDashboard() {
       <td>${status}</td>
       <td>${new Date(p.timestamp).toLocaleString()}</td>
       <td><button class="btn-mini" onclick="viewAdminReport(${p.id})">View Report</button></td>
-      <td><button class="btn-mini" onclick="deletePatient(event,${p.id})">Delete</button></td>
+      <td>
+        <button class="btn-mini" onclick="downloadReportDoc(${p.id})">Download</button>
+        <button class="btn-mini" onclick="deletePatient(event,${p.id})">Delete</button>
+      </td>
     </tr>`;
   }).join('');
 
