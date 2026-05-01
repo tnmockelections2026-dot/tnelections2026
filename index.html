@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0047)file:///C:/Users/acer/Downloads/Untitled-1.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MedAI — Disease Risk Predictor</title>
-<link href="./MedAI — Disease Risk Predictor_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0a0e14;
@@ -383,7 +383,7 @@ header {
 <div class="wrap">
   <div class="hero">
     <div class="hero-tag">CLINICAL RISK ANALYSIS ENGINE</div>
-    <h1>Disease Risk Prediction<br><strong>From Patient Vitals &amp; Lab Data</strong></h1>
+    <h1>Disease Risk Prediction<br><strong>From Patient Vitals & Lab Data</strong></h1>
     <p>Enter patient details and live clinical parameters. The engine analyses 10 biomarkers and computes a unified risk score with targeted recommendations.</p>
   </div>
 
@@ -451,26 +451,26 @@ header {
         </div>
         <div class="panel-body">
 
-          <div class="sec-label">Cardiovascular &amp; Metabolic</div>
+          <div class="sec-label">Cardiovascular & Metabolic</div>
           <div class="vital-grid">
             <div class="vital-card" id="vc-glucose">
               <label>Glucose</label>
-              <input type="number" id="v-glucose" placeholder="90" oninput="checkVital(this,&#39;glucose&#39;)">
+              <input type="number" id="v-glucose" placeholder="90" oninput="checkVital(this,'glucose')">
               <div class="vital-unit">mg/dL · Normal &lt;126</div>
             </div>
             <div class="vital-card" id="vc-sys">
               <label>Systolic BP</label>
-              <input type="number" id="v-sys" placeholder="120" oninput="checkVital(this,&#39;sys&#39;)">
+              <input type="number" id="v-sys" placeholder="120" oninput="checkVital(this,'sys')">
               <div class="vital-unit">mmHg · Normal &lt;130</div>
             </div>
             <div class="vital-card" id="vc-dia">
               <label>Diastolic BP</label>
-              <input type="number" id="v-dia" placeholder="80" oninput="checkVital(this,&#39;dia&#39;)">
+              <input type="number" id="v-dia" placeholder="80" oninput="checkVital(this,'dia')">
               <div class="vital-unit">mmHg · Normal &lt;85</div>
             </div>
             <div class="vital-card" id="vc-bmi">
               <label>BMI</label>
-              <input type="number" id="v-bmi" placeholder="22.5" step="0.1" oninput="checkVital(this,&#39;bmi&#39;)">
+              <input type="number" id="v-bmi" placeholder="22.5" step="0.1" oninput="checkVital(this,'bmi')">
               <div class="vital-unit">kg/m² · Normal &lt;30</div>
             </div>
           </div>
@@ -479,22 +479,22 @@ header {
           <div class="vital-grid">
             <div class="vital-card" id="vc-hb">
               <label>Hemoglobin</label>
-              <input type="number" id="v-hb" placeholder="14" step="0.1" oninput="checkVital(this,&#39;hb&#39;)">
+              <input type="number" id="v-hb" placeholder="14" step="0.1" oninput="checkVital(this,'hb')">
               <div class="vital-unit">g/dL · Normal &gt;12</div>
             </div>
             <div class="vital-card" id="vc-chol">
               <label>Cholesterol</label>
-              <input type="number" id="v-chol" placeholder="180" oninput="checkVital(this,&#39;chol&#39;)">
+              <input type="number" id="v-chol" placeholder="180" oninput="checkVital(this,'chol')">
               <div class="vital-unit">mg/dL · Normal &lt;200</div>
             </div>
             <div class="vital-card" id="vc-trig">
               <label>Triglycerides</label>
-              <input type="number" id="v-trig" placeholder="120" oninput="checkVital(this,&#39;trig&#39;)">
+              <input type="number" id="v-trig" placeholder="120" oninput="checkVital(this,'trig')">
               <div class="vital-unit">mg/dL · Normal &lt;150</div>
             </div>
             <div class="vital-card" id="vc-creat">
               <label>Creatinine</label>
-              <input type="number" id="v-creat" placeholder="0.9" step="0.01" oninput="checkVital(this,&#39;creat&#39;)">
+              <input type="number" id="v-creat" placeholder="0.9" step="0.01" oninput="checkVital(this,'creat')">
               <div class="vital-unit">mg/dL · Normal &lt;1.3</div>
             </div>
           </div>
@@ -503,12 +503,12 @@ header {
           <div class="vital-grid">
             <div class="vital-card" id="vc-hr">
               <label>Heart Rate</label>
-              <input type="number" id="v-hr" placeholder="75" oninput="checkVital(this,&#39;hr&#39;)">
+              <input type="number" id="v-hr" placeholder="75" oninput="checkVital(this,'hr')">
               <div class="vital-unit">bpm · Normal &lt;100</div>
             </div>
             <div class="vital-card" id="vc-spo2">
               <label>SpO2</label>
-              <input type="number" id="v-spo2" placeholder="98" oninput="checkVital(this,&#39;spo2&#39;)">
+              <input type="number" id="v-spo2" placeholder="98" oninput="checkVital(this,'spo2')">
               <div class="vital-unit">% · Normal &gt;95</div>
             </div>
           </div>
@@ -542,26 +542,15 @@ header {
         <div class="panel-head">
           <span class="panel-icon">🗂</span>
           <h3>Patient Records</h3>
-          <span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;color:var(--muted);" id="pt-count">2 RECORDS</span>
+          <span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;color:var(--muted);" id="pt-count">0 RECORDS</span>
         </div>
         <div class="panel-body" style="padding:12px;">
-          <div class="patient-list" id="patient-list"><div class="patient-card active-patient" onclick="loadPatient(1777655448266)">
-      <div class="patient-avatar" style="background:#7c3aed22;color:#7c3aed;border:1px solid #7c3aed44;">K</div>
-      <div class="patient-info">
-        <div class="patient-name">kumar</div>
-        <div class="patient-meta">AGE 44 · General · 1/5/2026</div>
-      </div>
-      <span class="risk-badge risk-high">HIGH 90%</span>
-      <button class="del-btn" onclick="deletePatient(event,1777655448266)" title="Delete">×</button>
-    </div><div class="patient-card " onclick="loadPatient(1777654981995)">
-      <div class="patient-avatar" style="background:#00d4ff22;color:#00d4ff;border:1px solid #00d4ff44;">A</div>
-      <div class="patient-info">
-        <div class="patient-name">AJAI</div>
-        <div class="patient-meta">AGE 25 · General · 1/5/2026</div>
-      </div>
-      <span class="risk-badge risk-high">HIGH 90%</span>
-      <button class="del-btn" onclick="deletePatient(event,1777654981995)" title="Delete">×</button>
-    </div></div>
+          <div class="patient-list" id="patient-list">
+            <div class="empty-state">
+              <div class="empty-icon">👤</div>
+              No patients analysed yet.<br>Fill the form and run analysis.
+            </div>
+          </div>
         </div>
       </div>
 
@@ -572,111 +561,11 @@ header {
           <h3>Diagnostic Report</h3>
         </div>
         <div class="panel-body" id="result-body">
-    <div class="result-patient-name">kumar <span style="font-size:14px;color:var(--muted);">⚧</span></div>
-    <div class="result-meta">AGE 44 · — · General · 1/5/2026</div>
-
-    <div class="risk-meter">
-      <div class="risk-gauge">
-        <svg width="80" height="80" viewBox="0 0 80 80">
-          <circle cx="40" cy="40" r="32" fill="none" stroke="#1a2333" stroke-width="6"></circle>
-          <circle cx="40" cy="40" r="32" fill="none" stroke="var(--danger)" stroke-width="6" stroke-dasharray="201.06192982974676" stroke-dashoffset="20.106192982974676" stroke-linecap="round" style="transition:stroke-dashoffset 1s ease"></circle>
-        </svg>
-        <div class="risk-gauge-label">
-          <span class="risk-pct" style="color:var(--danger)">90%</span>
-          <span class="risk-lbl">Risk</span>
+          <div class="result-placeholder">
+            <div class="placeholder-art">🔬</div>
+            <div class="placeholder-text">Enter patient data and run analysis<br>to view the diagnostic report here.</div>
+          </div>
         </div>
-      </div>
-      <div class="risk-info">
-        <div class="risk-status" style="color:var(--danger)">⚠️ URGENT REVIEW</div>
-        <div class="risk-desc">Immediate medical attention recommended. Multiple critical parameters detected.</div>
-        
-      </div>
-    </div>
-
-    <div class="sec-label">Clinical Findings</div><div class="findings-grid"><div class="finding-card abnormal" style="animation-delay:0s">
-      <div class="finding-top">
-        <span class="finding-name">Glucose</span>
-        <span class="finding-status bad">Diabetes risk</span>
-      </div>
-      <div class="finding-value" style="color:var(--danger)">145</div>
-      <div class="finding-range">mg/dL · Normal: &lt; 126</div>
-    </div><div class="finding-card abnormal" style="animation-delay:0.05s">
-      <div class="finding-top">
-        <span class="finding-name">Systolic BP</span>
-        <span class="finding-status bad">Hypertensive</span>
-      </div>
-      <div class="finding-value" style="color:var(--danger)">135</div>
-      <div class="finding-range">mmHg · Normal: &lt; 130</div>
-    </div><div class="finding-card abnormal" style="animation-delay:0.1s">
-      <div class="finding-top">
-        <span class="finding-name">Diastolic BP</span>
-        <span class="finding-status bad">Elevated</span>
-      </div>
-      <div class="finding-value" style="color:var(--danger)">88</div>
-      <div class="finding-range">mmHg · Normal: &lt; 85</div>
-    </div><div class="finding-card warning" style="animation-delay:0.15000000000000002s">
-      <div class="finding-top">
-        <span class="finding-name">BMI</span>
-        <span class="finding-status warn">Overweight</span>
-      </div>
-      <div class="finding-value" style="color:var(--warn)">31.2</div>
-      <div class="finding-range">kg/m² · Normal: &lt; 30</div>
-    </div><div class="finding-card abnormal" style="animation-delay:0.2s">
-      <div class="finding-top">
-        <span class="finding-name">Hemoglobin</span>
-        <span class="finding-status bad">Anaemia</span>
-      </div>
-      <div class="finding-value" style="color:var(--danger)">11.5</div>
-      <div class="finding-range">g/dL · Normal: &gt; 12</div>
-    </div><div class="finding-card warning" style="animation-delay:0.25s">
-      <div class="finding-top">
-        <span class="finding-name">Cholesterol</span>
-        <span class="finding-status warn">Elevated</span>
-      </div>
-      <div class="finding-value" style="color:var(--warn)">215</div>
-      <div class="finding-range">mg/dL · Normal: &lt; 200</div>
-    </div><div class="finding-card warning" style="animation-delay:0.30000000000000004s">
-      <div class="finding-top">
-        <span class="finding-name">Triglycerides</span>
-        <span class="finding-status warn">Elevated</span>
-      </div>
-      <div class="finding-value" style="color:var(--warn)">160</div>
-      <div class="finding-range">mg/dL · Normal: &lt; 150</div>
-    </div><div class="finding-card abnormal" style="animation-delay:0.35000000000000003s">
-      <div class="finding-top">
-        <span class="finding-name">Creatinine</span>
-        <span class="finding-status bad">Renal stress</span>
-      </div>
-      <div class="finding-value" style="color:var(--danger)">1.4</div>
-      <div class="finding-range">mg/dL · Normal: &lt; 1.3</div>
-    </div><div class="finding-card normal" style="animation-delay:0.4s">
-      <div class="finding-top">
-        <span class="finding-name">Heart Rate</span>
-        <span class="finding-status ok">Normal</span>
-      </div>
-      <div class="finding-value" style="color:var(--accent3)">95</div>
-      <div class="finding-range">bpm · Normal: &lt; 100</div>
-    </div><div class="finding-card abnormal" style="animation-delay:0.45s">
-      <div class="finding-top">
-        <span class="finding-name">SpO2</span>
-        <span class="finding-status bad">Hypoxic</span>
-      </div>
-      <div class="finding-value" style="color:var(--danger)">94</div>
-      <div class="finding-range">% · Normal: &gt; 95</div>
-    </div></div>
-
-    <div class="prog-bar-wrap"><div class="prog-bar" style="width:90%;background:linear-gradient(90deg,var(--accent3),var(--danger))"></div></div>
-
-    <div class="sec-label">Recommendations</div>
-    <div class="rec-list"><div class="rec-item"><span class="rec-icon">🩸</span>Refer to endocrinologist — HbA1c test and glucose tolerance test recommended.</div><div class="rec-item"><span class="rec-icon">💊</span>Anti-hypertensive medication review. Monitor BP daily for 2 weeks.</div><div class="rec-item"><span class="rec-icon">🥗</span>Dietary consultation and structured exercise regimen advised.</div><div class="rec-item"><span class="rec-icon">💉</span>Iron supplement therapy. CBC and serum iron evaluation recommended.</div><div class="rec-item"><span class="rec-icon">🫀</span>Lipid panel workup. Consider statin therapy if LDL is elevated.</div><div class="rec-item"><span class="rec-icon">🫘</span>Nephrology referral. eGFR and urinalysis required.</div><div class="rec-item"><span class="rec-icon">🫁</span>Immediate spirometry. Oxygen supplementation may be required.</div><div class="rec-item"><span class="rec-icon">🚨</span>URGENT: Immediate physician review and hospitalisation evaluation recommended.</div></div>
-
-    <div class="sec-label" style="margin-top:16px;">Diagnostic Log</div>
-    <div class="terminal"><span class="t-dim">[10:40:48 pm]</span> <span class="t-cyan">INIT</span> MedAI Diagnostic Engine v6.0
-<span class="t-dim">[PATIENT]</span> <span class="t-white">kumar</span> · Age 44 · General
-<span class="t-green">[TABULAR]</span> 10 vitals parsed — 6 critical, 3 warnings
-<span class="t-yellow">[RISK]</span> Aggregate score: <span class="t-white">90%</span>
-<span class="t-red">[STATUS]</span> URGENT REVIEW</div>
-  </div>
       </div>
 
     </div>
@@ -717,8 +606,8 @@ header {
       <button class="btn-modal-cancel" onclick="closeAdminDashboard()">Close</button>
     </div>
     <div class="admin-grid">
-      <div class="admin-metric"><div class="k">Total Records</div><div class="v" id="adm-total">2</div></div>
-      <div class="admin-metric"><div class="k">High Risk</div><div class="v" id="adm-high" style="color:var(--danger);">2</div></div>
+      <div class="admin-metric"><div class="k">Total Records</div><div class="v" id="adm-total">0</div></div>
+      <div class="admin-metric"><div class="k">High Risk</div><div class="v" id="adm-high" style="color:var(--danger);">0</div></div>
       <div class="admin-metric"><div class="k">Moderate Risk</div><div class="v" id="adm-mod" style="color:var(--warn);">0</div></div>
       <div class="admin-metric"><div class="k">Low Risk</div><div class="v" id="adm-low" style="color:var(--accent3);">0</div></div>
     </div>
@@ -735,39 +624,13 @@ header {
             <th>Report</th>
           </tr>
         </thead>
-        <tbody id="admin-records-body"><tr>
-      <td>kumar</td>
-      <td>44</td>
-      <td>General</td>
-      <td>90%</td>
-      <td>HIGH</td>
-      <td>1/5/2026, 10:40:48 pm</td>
-      <td><button class="btn-mini" onclick="viewAdminReport(1777655448266)">View Report</button></td>
-    </tr><tr>
-      <td>AJAI</td>
-      <td>25</td>
-      <td>General</td>
-      <td>90%</td>
-      <td>HIGH</td>
-      <td>1/5/2026, 10:33:01 pm</td>
-      <td><button class="btn-mini" onclick="viewAdminReport(1777654981995)">View Report</button></td>
-    </tr></tbody>
+        <tbody id="admin-records-body"></tbody>
       </table>
     </div>
     <div class="admin-report" id="admin-report-box">
-    <div class="admin-report-title">
-      Diagnostic Report · kumar
-      <span class="admin-chip risk-high">HIGH 90%</span>
+      <div class="admin-report-title">Diagnostic Report</div>
+      <div style="color:var(--muted);font-size:12px;">Select a patient record to view full report details.</div>
     </div>
-    <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">
-      AGE 44 · — · General · 1/5/2026, 10:40:48 pm
-    </div>
-    <div class="sec-label">Clinical Findings</div>
-    <div class="admin-report-list"><div class="admin-report-item">Glucose: <strong>145</strong> mg/dL · Diabetes risk</div><div class="admin-report-item">Systolic BP: <strong>135</strong> mmHg · Hypertensive</div><div class="admin-report-item">Diastolic BP: <strong>88</strong> mmHg · Elevated</div><div class="admin-report-item">BMI: <strong>31.2</strong> kg/m² · Overweight</div><div class="admin-report-item">Hemoglobin: <strong>11.5</strong> g/dL · Anaemia</div><div class="admin-report-item">Cholesterol: <strong>215</strong> mg/dL · Elevated</div><div class="admin-report-item">Triglycerides: <strong>160</strong> mg/dL · Elevated</div><div class="admin-report-item">Creatinine: <strong>1.4</strong> mg/dL · Renal stress</div><div class="admin-report-item">Heart Rate: <strong>95</strong> bpm · Normal</div><div class="admin-report-item">SpO2: <strong>94</strong> % · Hypoxic</div></div>
-    <div class="sec-label" style="margin-top:10px;">Recommendations</div>
-    <div class="admin-report-list"><div class="admin-report-item">🩸 Refer to endocrinologist — HbA1c test and glucose tolerance test recommended.</div><div class="admin-report-item">💊 Anti-hypertensive medication review. Monitor BP daily for 2 weeks.</div><div class="admin-report-item">🥗 Dietary consultation and structured exercise regimen advised.</div><div class="admin-report-item">💉 Iron supplement therapy. CBC and serum iron evaluation recommended.</div><div class="admin-report-item">🫀 Lipid panel workup. Consider statin therapy if LDL is elevated.</div><div class="admin-report-item">🫘 Nephrology referral. eGFR and urinalysis required.</div><div class="admin-report-item">🫁 Immediate spirometry. Oxygen supplementation may be required.</div><div class="admin-report-item">🚨 URGENT: Immediate physician review and hospitalisation evaluation recommended.</div></div>
-    <button class="btn-download" onclick="downloadReportDoc(1777655448266)">📄 Download Word Report</button>
-  </div>
   </div>
 </div>
 
@@ -945,7 +808,6 @@ async function runAnalysis() {
   renderAdminDashboard();
   activePatientId = patient.id;
   renderResult(patient);
-  autoDownloadReportExcel(patient);
 
   btn.disabled = false; btn.textContent = '⚡ RUN DIAGNOSTIC ANALYSIS';
   showToast(`✅ Analysis complete — Risk: ${riskScore}%`);
@@ -1016,50 +878,6 @@ function generateRecs(findings, risk) {
   if (recs.length === 0)
     recs.push({icon:'✅', text:'All parameters within healthy range. Routine 6-month follow-up recommended.'});
   return recs;
-}
-
-function autoDownloadReportExcel(patient) {
-  const rows = [];
-  const pushRow = arr => rows.push(arr.map(v => `"${String(v ?? '').replace(/"/g, '""')}"`).join(','));
-
-  pushRow(['MedAI Diagnostic Report']);
-  pushRow(['Generated At', new Date().toLocaleString()]);
-  pushRow([]);
-  pushRow(['Patient Name', patient.name]);
-  pushRow(['Age', patient.age]);
-  pushRow(['Gender', patient.gender || '']);
-  pushRow(['Blood Group', patient.blood || '']);
-  pushRow(['Department', patient.dept || 'General']);
-  pushRow(['Risk Score (%)', patient.riskScore]);
-  pushRow(['Notes', patient.notes || '']);
-  pushRow([]);
-
-  pushRow(['Clinical Findings']);
-  pushRow(['Parameter', 'Value', 'Status', 'Message']);
-  (patient.findings || []).forEach(f => {
-    const t = THRESHOLDS[f.key] || {};
-    pushRow([t.label || f.key, `${f.value} ${t.unit || ''}`.trim(), f.status, f.msg]);
-  });
-  pushRow([]);
-
-  pushRow(['Recommendations']);
-  pushRow(['#', 'Recommendation']);
-  (patient.recs || []).forEach((r, i) => {
-    pushRow([i + 1, `${r.icon || ''} ${r.text}`.trim()]);
-  });
-
-  const csv = rows.join('\n');
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  const safeName = (patient.name || 'patient').replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '');
-  const datePart = new Date().toISOString().slice(0, 10);
-  a.href = url;
-  a.download = `${safeName || 'patient'}_${datePart}_report.csv`;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
 }
 
 function downloadReportDoc(patientOrId) {
@@ -1427,6 +1245,5 @@ renderPatientList();
 renderAdminDashboard();
 if (patients.length > 0) { activePatientId = patients[0].id; renderPatientList(); renderResult(patients[0]); }
 </script>
-
-
-</body></html>
+</body>
+</html>
